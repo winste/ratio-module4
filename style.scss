@@ -1,5 +1,4 @@
 @import './public/styles/_fonts.scss';
-@import './public/styles/_header.scss';
 
 
 $mainColor: rgba(0, 0, 0, 1);
@@ -40,4 +39,12 @@ a {
   &:hover {
     color: rgba(0, 0, 0, .5);
   }
+}
+
+
+h2 {
+  font-style: normal;
+font-weight: 700;
+font-size: 33px;
+line-height: 41px;
 }
