@@ -1,17 +1,34 @@
+import Component from "../../templates/component";
 import "./_header.scss";
 
-export default Header = () => {
-    create: {
-        document.body.appendChild(
-        `<header class="header container">
-        <a class="header__logo" href="/">
-            <img class="header__img" src="/images/logo.svg" alt="logo">
-        </a>
-            <nav class="header__nav nav">
-                <a class="nav__item nav__item--active" href="/">home</a>
-                <a class="nav__item" href="/blog">blog</a>
-                <a class="nav__item" href="/about">about</a>
-            </nav>
-    </header>`)
-    }
+class Header extends Component {
+  constructor(tagName, className) {
+    super(tagName, className);
+  }
+
+  addLogo() {
+    const logoLink = document.createElement("a");
+    logoLink.classList.add("header__logo");
+    window.location.pathname == "/" ? "" : (logoLink.href = "/");
+    logoLink.innerHTML = `<img class="header__img" src="/images/logo.svg" alt="logo">`;
+    return logoLink;
+  }
+
+  createNavigation() {
+    const navigationBlock = document.createElement("nav");
+    navigationBlock.classList.add("nav");
+    navigationBlock.innerHTML = `
+            <a class="nav__item" href="/">home</a>
+            <a class="nav__item" href="/blog">blog</a>
+            <a class="nav__item" href="/about">about</a>
+        `;
+    return navigationBlock;
+  }
+
+  render() {
+    this.container.append(this.addLogo(), this.createNavigation());
+    return this.container;
+  }
 }
+
+export default Header;
