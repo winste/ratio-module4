@@ -1,0 +1,39 @@
+$colortext: rgba(28, 28, 28, 0.5);
+
+.banner {
+  &__info {
+    position: relative;
+    top: -598px;
+    left: 45px;
+    max-width: 509px;
+    padding: 76px 40px;
+    background-color: white;
+  }
+  &__tag {
+    font-size: 20px;
+    color: $colortext;
+    text-transform: uppercase;
+    line-height: 27.24px;
+  }
+  &__title {
+    font-family: Libre Baskerville;
+    font-weight: bold;
+    padding-bottom: 12px;
+  }
+  &__creation {
+    display: flex;
+    align-items: center;
+    color: $colortext;
+    margin-bottom: 14px;
+    &-dot {
+      width: 3px;
+      height: 3px;
+      background-color: $colortext;
+      border-radius: 50%;
+      margin: 15px 10px 10px 10px;
+    }
+    &-date {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,5 +1,12 @@
 import Component from "../../templates/component";
+import Navigation from "./navigation";
 import "./_header.scss";
+
+const navRoutes = {
+  home: "/",
+  blog: "/blog",
+  about: "/about",
+};
 
 class Header extends Component {
   constructor(tagName, className) {
@@ -9,7 +16,9 @@ class Header extends Component {
   addLogo() {
     const logoLink = document.createElement("a");
     logoLink.classList.add("header__logo");
-    window.location.pathname == "/" ? "" : (logoLink.href = "/");
+    window.location.pathname == navRoutes["home"]
+      ? ""
+      : (logoLink.href = navRoutes["home"]);
     logoLink.innerHTML = `<img class="header__img" src="/images/logo.svg" alt="logo">`;
     return logoLink;
   }
@@ -17,11 +26,15 @@ class Header extends Component {
   createNavigation() {
     const navigationBlock = document.createElement("nav");
     navigationBlock.classList.add("nav");
-    navigationBlock.innerHTML = `
-            <a class="nav__item" href="/">home</a>
-            <a class="nav__item" href="/blog">blog</a>
-            <a class="nav__item" href="/about">about</a>
-        `;
+
+    for (const route in navRoutes) {
+      const navItem = new Navigation("a", "nav__item");
+      navItem.addInner(route);
+      navItem.addRoute(navRoutes[route]);
+      if (window.location.pathname == navRoutes[route]) navItem.markActive();
+      navigationBlock.append(navItem.container);
+    }
+
     return navigationBlock;
   }
 

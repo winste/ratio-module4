@@ -1,8 +1,9 @@
 import './style.scss';
-
 import Header from './src/components/header/header';
+import Banner from './src/components/banner/banner';
 
 const header = new Header('header', 'header container');
+const banner = new Banner('section', 'banner container')
 
 class BodyWrap {
     constructor(HTMLElement) {
@@ -16,7 +17,9 @@ class BodyWrap {
  }
 
 const wrap = new BodyWrap(header.render());
-wrap.start()
+const wrap2 = new BodyWrap(banner.render());
+wrap.start();
+wrap2.start();
 
 
 
