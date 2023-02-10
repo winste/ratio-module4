@@ -12,12 +12,13 @@ class BodyWrap {
     }
 
     start() {
-        return this.container.append(this.HTMLElement);
+        this.container.append(this.HTMLElement);
+        return this.container;
     }
  }
 
-const wrap = new BodyWrap(header.render());
-const wrap2 = new BodyWrap(banner.render());
+const wrap = new BodyWrap(await header.render());
+const wrap2 = new BodyWrap(await banner.render());
 wrap.start();
 wrap2.start();
 

@@ -7,7 +7,7 @@ class DateConversion {
       "July","August","September",
       "October","November","December",
     ];
-    this.minutes = seconds / 60;
+    this.seconds = seconds;
   }
 
   getMonth() {
@@ -23,7 +23,7 @@ class DateConversion {
   }
 
   getReadingTime() {
-    return this.minutes;
+    return this.seconds / 60;
   }
 
   render() {
