@@ -2,11 +2,13 @@ import Component from "../../templates/component";
 import Navigation from "./navigation";
 import "./_header.scss";
 
+
 const navRoutes = {
   home: "/",
   blog: "/blog",
   about: "/about",
 };
+
 
 class Header extends Component {
   constructor(tagName, className) {
@@ -14,32 +16,29 @@ class Header extends Component {
   }
 
   addLogo() {
-    const logoLink = document.createElement("a");
-    logoLink.classList.add("header__logo");
+    const logo = new Component("a", "header__logo",);
+    logo.addContent(`<img class="header__img" src="/images/logo.svg" alt="logo">`)
     window.location.pathname == navRoutes["home"]
-      ? ""
-      : (logoLink.href = navRoutes["home"]);
-    logoLink.innerHTML = `<img class="header__img" src="/images/logo.svg" alt="logo">`;
-    return logoLink;
+        ? ""
+        : (logo.container.href = navRoutes["home"]);
+    return logo.render();
   }
 
-  createNavigation() {
-    const navigationBlock = document.createElement("nav");
-    navigationBlock.classList.add("nav");
+  createNavigationBlock() {
+    const nav = new Component("nav", "nav");
 
     for (const route in navRoutes) {
-      const navItem = new Navigation("a", "nav__item");
-      navItem.addInner(route);
-      navItem.addRoute(navRoutes[route]);
+      const navItem = new Navigation("a", "nav__item", navRoutes[route]);
+      navItem.addContent(route);
       if (window.location.pathname == navRoutes[route]) navItem.markActive();
-      navigationBlock.append(navItem.container);
+      nav.container.append(navItem.render());
     }
 
-    return navigationBlock;
+    return nav.render();
   }
 
   render() {
-    this.container.append(this.addLogo(), this.createNavigation());
+    this.container.append( this.addLogo(), this.createNavigationBlock() );
     return this.container;
   }
 }

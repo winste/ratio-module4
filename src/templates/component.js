@@ -4,7 +4,7 @@ class Component {
         this.container.className = className;
     }
 
-    addInner(content) {
+    addContent(content) {
         this.container.innerHTML = content;
     }
 

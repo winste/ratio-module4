@@ -2,11 +2,8 @@ import Component from "../../templates/component";
 
 
 class Navigation extends Component {
-  constructor(tagName, className) {
+  constructor(tagName, className, url) {
     super(tagName, className);
-  }
-
-  addRoute(url) {
     this.container.href = url;
   }
 
