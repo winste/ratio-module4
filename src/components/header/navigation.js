@@ -6,7 +6,7 @@ class Navigation extends Component {
     super(tagName, className);
     this.container.href = url;
   }
-
+  
   markActive() {
     this.container.classList.add("nav__item--active");
   }

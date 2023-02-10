@@ -1,12 +1,17 @@
 $colortext: rgba(28, 28, 28, 0.5);
 
 .banner {
+  position: relative;
+  max-height: 592px;
+  overflow: hidden;
+  &__img {
+    position: absolute;
+    z-index: -1;
+  }
   &__info {
-    position: relative;
-    top: -598px;
-    left: 45px;
     max-width: 509px;
-    padding: 76px 40px;
+    padding: 75px 40px;
+    margin-left: 45px;
     background-color: white;
   }
   &__tag {
@@ -25,7 +30,7 @@ $colortext: rgba(28, 28, 28, 0.5);
     align-items: center;
     color: $colortext;
     margin-bottom: 14px;
-    &-dot {
+    &-delimiter {
       width: 3px;
       height: 3px;
       background-color: $colortext;

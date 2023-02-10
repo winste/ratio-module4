@@ -26,7 +26,7 @@ $mainColor: rgba(0, 0, 0, 1);
 }
 
 .container {
-  max-width: 1316px;
+  max-width: 1366px;
   margin: 0 auto;
   padding: 25px;
 }
@@ -48,4 +48,8 @@ h2 {
 font-weight: 700;
 font-size: 33px;
 line-height: 41px;
+}
+
+img {
+  width: 100%;
 }
