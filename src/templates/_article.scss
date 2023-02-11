@@ -2,10 +2,14 @@ $colortext: rgba(28, 28, 28, 0.5);
 
 .article {
   max-width: 509px;
-  padding: 75px 40px;
+  // max-height: 311px;
+  padding: 0px;
   margin-left: 45px;
   background-color: white;
-
+  &__img {
+    max-width: 371px;
+    max-height: 298px;
+  }
   &__tag {
     font-size: 20px;
     color: $colortext;
@@ -15,7 +19,10 @@ $colortext: rgba(28, 28, 28, 0.5);
   &__title {
     font-family: Libre Baskerville;
     font-weight: bold;
-    padding-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   &__creation {
     display: flex;
@@ -32,5 +39,14 @@ $colortext: rgba(28, 28, 28, 0.5);
     &-date {
       font-size: 14px;
     }
+  }
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  &--view {
+    padding: 75px 40px;
   }
 }

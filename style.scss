@@ -1,5 +1,4 @@
-@import './public/styles/_fonts.scss';
-
+@import "./public/styles/_fonts.scss";
 
 $mainColor: rgba(0, 0, 0, 1);
 
@@ -11,8 +10,8 @@ $mainColor: rgba(0, 0, 0, 1);
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  } 
-  
+}
+
 :root {
   font-family: Open Sans, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -39,16 +38,20 @@ body {
 a {
   color: $mainColor;
   &:hover {
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, 0.5);
   }
 }
 
-
 h2 {
+  font-size: 42px;
+  font-weight: bold;
+  line-height: normal;
+}
+h3 {
   font-style: normal;
-font-weight: 700;
-font-size: 33px;
-line-height: 41px;
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 41px;
 }
 
 img {

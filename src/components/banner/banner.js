@@ -16,12 +16,13 @@ class Banner extends Component {
 
   async inner() {
     const dataValue = await this.getData();
+    console.log(dataValue);
     
     const bannerImg = new Component("img", "banner__img");
     bannerImg.container.src = `${dataValue.image}`;
     this.container.append(bannerImg.render())
 
-    const articlePreview = new Article("div", "banner__info article", dataValue);
+    const articlePreview = new Article("div", "banner__info article article--view", dataValue);
     return articlePreview.render();
   }
 

@@ -1,6 +1,6 @@
-import Component from "./component";
-import DateConversion from "../utils/getTime";
 import "./_article.scss"
+import Component from "./component";
+import DateConversion from "../utils/dateConversion";
 
 
 class Article extends Component {
@@ -16,7 +16,7 @@ class Article extends Component {
   }
 
   createTitle() {
-    const articleTitle = new Component("h2", "article__title");
+    const articleTitle = new Component("h3", "article__title");
     const titleLink = new Component("a", "article__title-link");
     titleLink.container.href = `/blog/article/${this.dataValue.id}`;
     const checkedTitle = this.dataValue.title.startsWith("FEATURED ARTICLE")

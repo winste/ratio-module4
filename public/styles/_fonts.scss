@@ -29,5 +29,15 @@
     url(/fonts/OpenSans/OpenSans-Regular.svg) format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(/fonts/OpenSans/OpenSans-Bold.eot);
+  src: url(/fonts/OpenSans/OpenSans-Bold.eot) format("embedded-opentype"),
+    url(/fonts/OpenSans/OpenSans-Bold.woff) format("woff"),
+    url(/fonts/OpenSans/OpenSans-Bold.ttf) format("truetype"),
+    url(/fonts/OpenSans/OpenSans-Bold.svg) format("svg");
+  font-weight: bold;
+  font-style: normal;
 }

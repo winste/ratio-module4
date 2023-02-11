@@ -10,7 +10,7 @@ class DateConversion {
   }
 
   getReadingTime() {
-    return this.seconds / 60;
+    return Math.round(this.seconds / 60);
   }
 
   render() {

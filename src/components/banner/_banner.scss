@@ -1,9 +1,14 @@
 .banner {
   position: relative;
-  max-height: 592px;
-  overflow: hidden;
+  min-height: 592px;
+  margin-bottom: 50px;
   &__img {
     position: absolute;
+    max-width: 1316px;
+    max-height: 592px;
+    object-fit: cover;
     z-index: -1;
   }
+
 }
+
