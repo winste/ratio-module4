@@ -13,27 +13,31 @@ class Catalog extends Component {
     return arcticleData;
   }
 
-  async createArticleBlock() {
-    const articlesData = await this.getData();
+  async createArticleBlock(limit) {
+    let articlesData = await this.getData();
+
+    if (limit) articlesData = articlesData.slice(0, limit)
 
     for (const articles of articlesData) {
       const wrapper = new Component("div", "catalog__article");
       this.container.append(wrapper.render());
 
-      const bannerImg = new Component("img", "article__img");
-      bannerImg.container.src = `${articles.image}`;
+      const articleImgLink = new Component("a", "article__img-link");
+      articleImgLink.container.href = `/blog/article/${articles.id}`;
+      const articleImg = new Component("img", "article__img");
+      articleImg.container.src = `/images/plug.jpg`;
+      articleImgLink.container.append(articleImg.render());
 
       const article = new Article("div", "catalog__info article", articles);
-      wrapper.container.append(bannerImg.render(), article.render());
+      wrapper.container.append(articleImgLink.render(), article.render());
       this.container.append(wrapper.render());
     }
   }
 
-  async render() {
-    await this.createArticleBlock();
+  async render(limit) {
+    await this.createArticleBlock(limit);
     return this.container;
   }
 }
-
 
 export default Catalog;

@@ -2,10 +2,8 @@ $colortext: rgba(28, 28, 28, 0.5);
 
 .article {
   max-width: 509px;
-  // max-height: 311px;
-  padding: 0px;
-  margin-left: 45px;
   background-color: white;
+  padding-left: 55px;
   &__img {
     max-width: 371px;
     max-height: 298px;
@@ -42,7 +40,7 @@ $colortext: rgba(28, 28, 28, 0.5);
   }
   &__description {
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

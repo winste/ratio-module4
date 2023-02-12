@@ -1,14 +1,22 @@
 .banner {
   position: relative;
   min-height: 592px;
-  margin-bottom: 50px;
+  padding-bottom: 0;
+  &--move {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
   &__img {
     position: absolute;
+    width: 100%;
     max-width: 1316px;
-    max-height: 592px;
+    max-height: 567px;
     object-fit: cover;
     z-index: -1;
   }
-
+  &__info {
+    margin-left: 45px;
+    margin-right: 45px;
+  }
 }
-
