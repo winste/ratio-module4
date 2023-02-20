@@ -40,4 +40,5 @@ class Catalog extends Component {
   }
 }
 
+
 export default Catalog;

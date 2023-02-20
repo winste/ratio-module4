@@ -4,8 +4,8 @@ class DateConversion {
     this.seconds = seconds;
     this.options = {
       month: "long",
-      day: "numeric",
-      year: "numeric"
+      day  : "numeric",
+      year : "numeric"
     }
   }
 

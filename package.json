@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "normalize-scss": "^7.0.1",
     "sass": "^1.57.1",
     "scss": "^0.2.4"
   },
