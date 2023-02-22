@@ -1,12 +1,13 @@
 class DateConversion {
+  options = {
+    month: "long",
+    day  : "numeric",
+    year : "numeric"
+  }
+
   constructor(timestamp, seconds) {
     this.date = new Date(timestamp * 1000);
     this.seconds = seconds;
-    this.options = {
-      month: "long",
-      day  : "numeric",
-      year : "numeric"
-    }
   }
 
   getReadingTime() {
