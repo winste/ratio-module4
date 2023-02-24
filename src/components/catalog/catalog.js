@@ -1,4 +1,4 @@
-import Article from "../../templates/article";
+import ArticlePreview from "../../templates/article-preview";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import "./_catalog.scss";
@@ -23,13 +23,13 @@ class Catalog extends Component {
       const wrapper = new Component("div", "catalog__article");
       this.container.append(wrapper.render());
 
-      const articleImgLink = new Component("a", "article__img-link");
-      const articleImg = new Component("img", "article__img");
+      const articleImgLink = new Component("a", "article-preview__img-link");
+      const articleImg = new Component("img", "article-preview__img");
       articleImgLink.container.href = `/blog/article/${articles.id}`;
       articleImg.container.src = `${articles.images || "/images/plug.jpg"}`;
       articleImgLink.container.append(articleImg.render());
 
-      const article = new Article("div", "catalog__info article", articles);
+      const article = new ArticlePreview("div", "catalog__info article-preview", articles);
       wrapper.container.append(articleImgLink.render(), article.render());
       this.container.append(wrapper.render());
     }

@@ -1,23 +1,23 @@
-import "./_article.scss"
+import "./_article-preview.scss"
 import Component from "./component";
 import DateConversion from "../utils/dateConversion";
 
 
-class Article extends Component {
+class ArticlePreview extends Component {
   constructor(tagName, className, data) {
     super(tagName, className);
     this.dataValue = data;
   }
 
   createTag() {
-    const articleTag = new Component("p", "article__tag");
+    const articleTag = new Component("p", "article-preview__tag");
     articleTag.addContent(this.dataValue.tag);
     return articleTag.render();
   }
 
   createTitle() {
-    const articleTitle = new Component("h3", "article__title");
-    const titleLink = new Component("a", "article__title-link");
+    const articleTitle = new Component("h3", "article-preview__title");
+    const titleLink = new Component("a", "article-preview__title-link");
     const checkedTitle = this.dataValue.title.startsWith("FEATURED ARTICLE")
       ? this.dataValue.title.split(" ").slice(2).join(" ")
       : this.dataValue.title;
@@ -28,11 +28,11 @@ class Article extends Component {
   }
 
   createTimeCreation() {
-    const articleTimeCreation = new Component("span", "article__creation");
+    const articleTimeCreation = new Component("span", "article-preview__creation");
     const articleFullTime = new DateConversion( this.dataValue.createdAt, this.dataValue.readTime );
-    const author = new Component("p", "article__creation-author");
-    const delimiter = new Component("p", "article__creation-delimiter");
-    const creationDate = new Component("p", "article__creation-date");
+    const author = new Component("p", "article-preview__creation-author");
+    const delimiter = new Component("p", "article-preview__creation-delimiter");
+    const creationDate = new Component("p", "article-preview__creation-date");
     author.addContent(this.dataValue.author);
     creationDate.addContent(`
             ${articleFullTime.render()} 
@@ -49,7 +49,7 @@ class Article extends Component {
   }
 
   createDescription() {
-    const articleDescription = new Component("p", "article__description");
+    const articleDescription = new Component("p", "article-preview__description");
     articleDescription.addContent(this.dataValue.description);
     return articleDescription.render();
   }
@@ -66,4 +66,4 @@ class Article extends Component {
 }
 
 
-export default Article;
+export default ArticlePreview;
