@@ -3,6 +3,7 @@ import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import "./_catalog.scss";
 
+
 class Catalog extends Component {
   constructor(tagName, className) {
     super(tagName, className);
@@ -23,9 +24,9 @@ class Catalog extends Component {
       this.container.append(wrapper.render());
 
       const articleImgLink = new Component("a", "article__img-link");
-      articleImgLink.container.href = `/blog/article/${articles.id}`;
       const articleImg = new Component("img", "article__img");
-      articleImg.container.src = `/images/plug.jpg`;
+      articleImgLink.container.href = `/blog/article/${articles.id}`;
+      articleImg.container.src = `${articles.images || "/images/plug.jpg"}`;
       articleImgLink.container.append(articleImg.render());
 
       const article = new Article("div", "catalog__info article", articles);

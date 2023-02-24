@@ -18,11 +18,11 @@ class Article extends Component {
   createTitle() {
     const articleTitle = new Component("h3", "article__title");
     const titleLink = new Component("a", "article__title-link");
-    titleLink.container.href = `/blog/article/${this.dataValue.id}`;
     const checkedTitle = this.dataValue.title.startsWith("FEATURED ARTICLE")
       ? this.dataValue.title.split(" ").slice(2).join(" ")
       : this.dataValue.title;
     titleLink.addContent(checkedTitle);
+    titleLink.container.href = `/blog/article/${this.dataValue.id}`;
     articleTitle.container.append(titleLink.render()); 
     return articleTitle.render();
   }
@@ -31,9 +31,9 @@ class Article extends Component {
     const articleTimeCreation = new Component("span", "article__creation");
     const articleFullTime = new DateConversion( this.dataValue.createdAt, this.dataValue.readTime );
     const author = new Component("p", "article__creation-author");
-    author.addContent(this.dataValue.author);
     const delimiter = new Component("p", "article__creation-delimiter");
     const creationDate = new Component("p", "article__creation-date");
+    author.addContent(this.dataValue.author);
     creationDate.addContent(`
             ${articleFullTime.render()} 
             (${articleFullTime.getReadingTime()} mins read)

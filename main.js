@@ -14,7 +14,6 @@ catalog.createTitle("Editor’s Picks", "catalog__title");
 const about = new About("section", "about  container");
 
 
-
 async function routing() {
   let page = undefined;
 
@@ -44,11 +43,19 @@ async function routing() {
       );
       break;
 
+    case `/blog/article/1`:
+      page = new Page(
+        await header.render(),
+      );
+      break;
+
     default:
+      page = new Page("404")
       break;
   }
 
   document.body.append(page.render());
 }
+
 
 routing();

@@ -17,9 +17,10 @@ class About extends Component {
     const dataValue = await this.getData();
 
     const aboutTitle = new Component("h2", "about__title");
-    aboutTitle.addContent(dataValue.title)
     const aboutText = new Component("div", "about__text");
+    aboutTitle.addContent(dataValue.title)
     aboutText.addContent(dataValue.content)
+    
     this.container.append(aboutTitle.render(), aboutText.render());
   }
 
