@@ -5,24 +5,21 @@ import "./_catalog.scss";
 
 
 class Catalog extends Component {
+  #data;
   constructor(tagName, className) {
     super(tagName, className);
   }
 
   async getData() {
-    const arcticleData = await uploadedData("blog/articles/");
-    return arcticleData;
+    this.#data = await uploadedData("blog/articles/");
   }
 
-  async createArticleBlock(limit) {
-    let articlesData = await this.getData();
+  async createArticles(limit = 20) {
+    this.#data = this.#data.slice(0, limit);
+    const collectionArticles = new Component("div", "catalog__wrapper")
 
-    if (limit) articlesData = articlesData.slice(0, limit)
-
-    for (const articles of articlesData) {
-      const wrapper = new Component("div", "catalog__article");
-      this.container.append(wrapper.render());
-
+    for (const articles of this.#data) {
+      const articleWrapper = new Component("div", "catalog__article");
       const articleImgLink = new Component("a", "article-preview__img-link");
       const articleImg = new Component("img", "article-preview__img");
       articleImgLink.container.href = `/blog/article/${articles.id}`;
@@ -30,13 +27,15 @@ class Catalog extends Component {
       articleImgLink.container.append(articleImg.render());
 
       const article = new ArticlePreview("div", "catalog__info article-preview", articles);
-      wrapper.container.append(articleImgLink.render(), article.render());
-      this.container.append(wrapper.render());
+      articleWrapper.container.append(articleImgLink.render(), article.render());
+      collectionArticles.container.append(articleWrapper.render());
     }
+    return collectionArticles.render();
   }
 
   async render(limit) {
-    await this.createArticleBlock(limit);
+    await this.getData();
+    this.container.append(await this.createArticles(limit));
     return this.container;
   }
 }

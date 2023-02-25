@@ -4,28 +4,30 @@ import uploadedData from "../../utils/uploadedData";
 
 
 class About extends Component {
+  #data;
   constructor(tagName, className) {
     super(tagName, className);
   }
 
   async getData() {
-    const aboutData = await uploadedData("about/");
-    return aboutData;
+    this.#data = await uploadedData("about/");
   }
 
-  async inner() {
-    const dataValue = await this.getData();
+  createTitle() {
+    const title = new Component("h2", "about__title");
+    title.addContent(this.#data.title);
+    return title.render();
+  }
 
-    const aboutTitle = new Component("h2", "about__title");
-    const aboutText = new Component("div", "about__text");
-    aboutTitle.addContent(dataValue.title)
-    aboutText.addContent(dataValue.content)
-    
-    this.container.append(aboutTitle.render(), aboutText.render());
+  createDesctiption() {
+    const desctiption = new Component("div", "about__text");
+    desctiption.addContent(this.#data.content)
+    return desctiption.render();
   }
 
   async render() {
-    await this.inner();
+    await this.getData();
+    this.container.append(this.createTitle(), this.createDesctiption())
     return this.container;
   }
 }

@@ -3,35 +3,36 @@ import Component from "../../templates/component";
 import ArticlePreview from "../../templates/article-preview/article-preview";
 import uploadedData from "../../utils/uploadedData";
 
-
 class Banner extends Component {
-
+  #data;
   constructor(tagName, className) {
     super(tagName, className);
   }
 
   async getData() {
-    const featuredData = await uploadedData("blog/featured/");
-    return featuredData;
+    this.#data = await uploadedData("blog/featured/");
   }
 
-  async inner() {
-    const dataValue = await this.getData();
-
+  addImg() {
     const bannerImg = new Component("img", "banner__img");
-    bannerImg.container.src = `${dataValue.image}`;
-    this.container.append(bannerImg.render())
+    bannerImg.container.src = `${this.#data.image}`;
+    return bannerImg.render();
+  }
 
-    const articlePreview = new ArticlePreview("div", "banner__info article-preview article-preview--view", dataValue);
+  createArtice() {
+    const articlePreview = new ArticlePreview(
+      "div",
+      "banner__info article-preview article-preview--view",
+      this.#data
+    );
     return articlePreview.render();
   }
 
   async render() {
-    const innerContent = await this.inner();
-    this.container.append(innerContent)
-    return this.container
+    await this.getData();
+    this.container.append(this.addImg(), this.createArtice());
+    return this.container;
   }
 }
-
 
 export default Banner;

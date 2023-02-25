@@ -1,16 +1,15 @@
 import Component from "../../templates/component";
-import Navigation from "./navigation";
+import Navigation from "../../templates/navigation";
 import "./_header.scss";
 
 
-const navRoutes = {
-  home: "/",
-  blog: "/blog",
-  about: "/about",
-};
-
-
 class Header extends Component {
+  navRoutes = {
+    home: "/",
+    blog: "/blog",
+    about: "/about",
+  };
+
   constructor(tagName, className) {
     super(tagName, className);
   }
@@ -18,19 +17,19 @@ class Header extends Component {
   addLogo() {
     const logo = new Component("a", "header__logo",);
     logo.addContent(`<img class="header__img" src="/images/logo.svg" alt="logo">`)
-    window.location.pathname == navRoutes["home"]
+    window.location.pathname == this.navRoutes["home"]
         ? ""
-        : (logo.container.href = navRoutes["home"]);
+        : (logo.container.href = this.navRoutes["home"]);
     return logo.render();
   }
 
-  createNavigationBlock() {
+  createNavigation() {
     const nav = new Component("nav", "nav");
 
-    for (const route in navRoutes) {
-      const navItem = new Navigation("a", "nav__item", navRoutes[route]);
+    for (const route in this.navRoutes) {
+      const navItem = new Navigation("a", "nav__item", this.navRoutes[route]);
       navItem.addContent(route);
-      if (window.location.pathname == navRoutes[route]) navItem.markActive();
+      if (window.location.pathname == this.navRoutes[route]) navItem.markActive();
       nav.container.append(navItem.render());
     }
 
@@ -38,7 +37,7 @@ class Header extends Component {
   }
 
   render() {
-    this.container.append( this.addLogo(), this.createNavigationBlock() );
+    this.container.append( this.addLogo(), this.createNavigation() );
     return this.container;
   }
 }

@@ -1,4 +1,4 @@
-import Component from "../../templates/component";
+import Component from "./component";
 
 
 class Navigation extends Component {
