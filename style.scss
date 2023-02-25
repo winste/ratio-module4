@@ -38,7 +38,7 @@ body {
 a {
   color: $mainColor;
   &:hover {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
@@ -47,6 +47,7 @@ h2 {
   font-weight: bold;
   line-height: normal;
 }
+
 h3 {
   font-style: normal;
   font-weight: 700;

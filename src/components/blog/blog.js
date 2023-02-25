@@ -1,10 +1,10 @@
 import ArticlePreview from "../../templates/article-preview/article-preview";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
-import "./_catalog.scss";
+import "./_blog.scss";
 
 
-class Catalog extends Component {
+class Blog extends Component {
   #data;
   constructor(tagName, className) {
     super(tagName, className);
@@ -16,17 +16,17 @@ class Catalog extends Component {
 
   async createArticles(limit = 20) {
     this.#data = this.#data.slice(0, limit);
-    const collectionArticles = new Component("div", "catalog__wrapper")
+    const collectionArticles = new Component("div", "blog__articles")
 
     for (const articles of this.#data) {
-      const articleWrapper = new Component("div", "catalog__article");
+      const articleWrapper = new Component("div", "blog__article");
       const articleImgLink = new Component("a", "article-preview__img-link");
       const articleImg = new Component("img", "article-preview__img");
       articleImgLink.container.href = `/blog/article/${articles.id}`;
       articleImg.container.src = `${articles.images || "/images/plug.jpg"}`;
       articleImgLink.container.append(articleImg.render());
 
-      const article = new ArticlePreview("div", "catalog__info article-preview", articles);
+      const article = new ArticlePreview("div", "blog__info article-preview", articles);
       articleWrapper.container.append(articleImgLink.render(), article.render());
       collectionArticles.container.append(articleWrapper.render());
     }
@@ -41,4 +41,4 @@ class Catalog extends Component {
 }
 
 
-export default Catalog;
+export default Blog;

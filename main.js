@@ -2,7 +2,7 @@ import "./style.scss";
 import Page from "./src/templates/page";
 import Header from "./src/components/header/header";
 import Banner from "./src/components/banner/banner";
-import Catalog from "./src/components/catalog/catalog";
+import Blog from "./src/components/blog/blog";
 import About from "./src/components/about/about";
 import ArticlePage from "./src/components/article/article";
 
@@ -10,8 +10,8 @@ import ArticlePage from "./src/components/article/article";
 const header = new Header("header", "header container");
 const banner = new Banner("section", "banner container");
 const bannerMove = new Banner("section", "banner banner--move container");
-const catalog = new Catalog("section", "catalog container");
-catalog.createTitle("Editor’s Picks", "catalog__title");
+const blog = new Blog("section", "blog container");
+blog.createTitle("Editor’s Picks", "blog__title");
 const about = new About("section", "about  container");
 const article = new ArticlePage("section", "article__wrapper container")
 
@@ -24,14 +24,14 @@ async function route() {
     page = new Page(
       await header.render(),
       await banner.render(),
-      await catalog.render(3),
+      await blog.render(3),
       await bannerMove.render()
     )
   } else if (path == "/blog") {
     page = new Page(
       await header.render(),
       await banner.render(),
-      await catalog.render()
+      await blog.render()
     )
   } else if (path == "/about") {
     page = new Page(
