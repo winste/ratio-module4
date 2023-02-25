@@ -1,7 +1,8 @@
 import "./_banner.scss";
 import Component from "../../templates/component";
-import Article from "../../templates/article-preview";
+import ArticlePreview from "../../templates/article-preview/article-preview";
 import uploadedData from "../../utils/uploadedData";
+
 
 class Banner extends Component {
 
@@ -21,7 +22,7 @@ class Banner extends Component {
     bannerImg.container.src = `${dataValue.image}`;
     this.container.append(bannerImg.render())
 
-    const articlePreview = new Article("div", "banner__info article-preview article-preview--view", dataValue);
+    const articlePreview = new ArticlePreview("div", "banner__info article-preview article-preview--view", dataValue);
     return articlePreview.render();
   }
 

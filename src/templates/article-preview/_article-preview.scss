@@ -22,22 +22,6 @@ $colortext: rgba(28, 28, 28, 0.5);
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  &__creation {
-    display: flex;
-    align-items: center;
-    color: $colortext;
-    margin-bottom: 14px;
-    &-delimiter {
-      width: 3px;
-      height: 3px;
-      background-color: $colortext;
-      border-radius: 50%;
-      margin: 15px 10px 10px 10px;
-    }
-    &-date {
-      font-size: 14px;
-    }
-  }
   &__description {
     display: -webkit-box;
     -webkit-line-clamp: 4;

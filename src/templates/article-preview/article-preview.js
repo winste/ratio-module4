@@ -1,7 +1,6 @@
-import "./_article-preview.scss"
-import Component from "./component";
-import DateConversion from "../utils/dateConversion";
-
+import "./_article-preview.scss";
+import Component from "../component";
+import Creation from "../creation/creationInfo";
 
 class ArticlePreview extends Component {
   constructor(tagName, className, data) {
@@ -23,33 +22,27 @@ class ArticlePreview extends Component {
       : this.dataValue.title;
     titleLink.addContent(checkedTitle);
     titleLink.container.href = `/blog/article/${this.dataValue.id}`;
-    articleTitle.container.append(titleLink.render()); 
+    articleTitle.container.append(titleLink.render());
     return articleTitle.render();
   }
 
   createTimeCreation() {
-    const articleTimeCreation = new Component("span", "article-preview__creation");
-    const articleFullTime = new DateConversion( this.dataValue.createdAt, this.dataValue.readTime );
-    const author = new Component("p", "article-preview__creation-author");
-    const delimiter = new Component("p", "article-preview__creation-delimiter");
-    const creationDate = new Component("p", "article-preview__creation-date");
-    author.addContent(this.dataValue.author);
-    creationDate.addContent(`
-            ${articleFullTime.render()} 
-            (${articleFullTime.getReadingTime()} mins read)
-        `);
-
-    articleTimeCreation.container.append(
-      author.render(),
-      delimiter.render(),
-      creationDate.render()
+    const articleTimeCreation = new Creation(
+      "span",
+      "article-preview__creation",
+      this.dataValue.author,
+      this.dataValue.createdAt,
+      this.dataValue.readTime
     );
 
     return articleTimeCreation.render();
   }
 
   createDescription() {
-    const articleDescription = new Component("p", "article-preview__description");
+    const articleDescription = new Component(
+      "p",
+      "article-preview__description"
+    );
     articleDescription.addContent(this.dataValue.description);
     return articleDescription.render();
   }
@@ -64,6 +57,5 @@ class ArticlePreview extends Component {
     return this.container;
   }
 }
-
 
 export default ArticlePreview;

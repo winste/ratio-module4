@@ -1,9 +1,25 @@
-// .article {
-//     max-width: 100%;
-//     &__description {
-//         display: block;
-//         -webkit-line-clamp: none;
-//         -webkit-box-orient: vertical;
-//         overflow: auto;
-//       }
-// }
+$colortext: rgba(28, 28, 28, 0.5);
+
+.article {
+    &__container {
+        max-width: 652px;
+        margin: 0 auto;
+        padding-top: 55px;
+    }
+    &__title {
+        font-family: Libre Baskerville;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    &__img {
+        width: 100%;
+        max-width: 1316px;
+        max-height: 567px;
+        object-fit: cover;
+    }
+    &__description {
+        & > p {
+            padding-bottom: 30px;
+        }
+    }
+}

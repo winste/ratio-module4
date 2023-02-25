@@ -1,8 +1,7 @@
 import "./_article.scss";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
-import DateConversion from "../../utils/dateConversion";
-
+import Creation from "../../templates/creation/creationInfo";
 
 class ArticlePage extends Component {
   #data;
@@ -30,29 +29,13 @@ class ArticlePage extends Component {
   }
 
   createTimeCreation() {
-    const articleTimeCreation = new Component("span", "article__creation");
-    const articleFullTime = new DateConversion( this.#data.createdAt, this.#data.readTime );
-    const author = new Component("p", "article__creation-author");
-    const delimiter = new Component("p", "article__creation-delimiter");
-    const creationDate = new Component("p", "article__creation-date");
-    author.addContent(this.#data.author.name);
-    creationDate.addContent(`
-            ${articleFullTime.render()} 
-            (${articleFullTime.getReadingTime()} mins read)
-        `);
-
-        
-
-    articleTimeCreation.container.append(
-      author.render(),
-      delimiter.render(),
-      creationDate.render()
+    const articleTimeCreation = new Creation(
+      "span",
+      "article__creation",
+      this.#data.author.name,
+      this.#data.createdAt,
+      this.#data.readTime
     );
-
-  console.log(articleTimeCreation);
-
-    console.log(this.#data);
-
     return articleTimeCreation.render();
   }
 
@@ -62,15 +45,16 @@ class ArticlePage extends Component {
     return articleDescription.render();
   }
 
-
   async render() {
     await this.getData();
-    this.container.append(
-      await this.addImage(),
+    const wrapper = new Component("div", "article__container");
+    wrapper.container.append(
       await this.createTitle(),
       await this.createTimeCreation(),
       await this.createDescription()
     );
+
+    this.container.append(await this.addImage(), wrapper.render());
     return this.container;
   }
 }
