@@ -1,0 +1,21 @@
+$colortext: rgba(28, 28, 28, 0.5);
+
+.author {
+  &__title {
+    color: $colortext;
+    padding-bottom: 15px;
+  }
+  &__card {
+    display: flex;
+  }
+  &__description {
+    padding-left: 37px;
+  }
+  &__nickname {
+    color: $colortext;
+    padding: 10px 0;
+  }
+  &__about {
+    padding-top: 10px;
+  }
+}

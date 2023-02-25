@@ -2,6 +2,8 @@ import "./_article.scss";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import Creation from "../../templates/creation/creationInfo";
+import Author from "../../templates/author/author";
+
 
 class ArticlePage extends Component {
   #data;
@@ -14,6 +16,7 @@ class ArticlePage extends Component {
     const regex = /\d+$/;
     const articleNumber = this.url.match(regex);
     this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
+    console.log(this.#data);
   }
 
   addImage() {
@@ -45,13 +48,27 @@ class ArticlePage extends Component {
     return articleDescription.render();
   }
 
+  createAboutAuthor() {
+    const authorBlock = new Component("div", "author")
+    const title = new Component("p", "author__title");
+    const author = new Author("div", "author__card", this.#data.author);
+    title.addContent("ABOUT THE AUTHOR");
+    authorBlock.container.append(
+      title.render(),
+      author.render()
+    )
+
+    return authorBlock.render();
+  }
+
   async render() {
     await this.getData();
     const wrapper = new Component("div", "article__container");
     wrapper.container.append(
       await this.createTitle(),
       await this.createTimeCreation(),
-      await this.createDescription()
+      await this.createDescription(),
+      await this.createAboutAuthor()
     );
 
     this.container.append(await this.addImage(), wrapper.render());

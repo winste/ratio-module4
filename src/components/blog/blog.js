@@ -30,6 +30,7 @@ class Blog extends Component {
       articleWrapper.container.append(articleImgLink.render(), article.render());
       collectionArticles.container.append(articleWrapper.render());
     }
+    
     return collectionArticles.render();
   }
 

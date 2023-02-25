@@ -3,25 +3,26 @@ import Component from "../component";
 import Creation from "../creation/creationInfo";
 
 class ArticlePreview extends Component {
+  #data;
   constructor(tagName, className, data) {
     super(tagName, className);
-    this.dataValue = data;
+    this.#data = data;
   }
 
   createTag() {
     const articleTag = new Component("p", "article-preview__tag");
-    articleTag.addContent(this.dataValue.tag);
+    articleTag.addContent(this.#data.tag);
     return articleTag.render();
   }
 
   createTitle() {
     const articleTitle = new Component("h3", "article-preview__title");
     const titleLink = new Component("a", "article-preview__title-link");
-    const checkedTitle = this.dataValue.title.startsWith("FEATURED ARTICLE")
-      ? this.dataValue.title.split(" ").slice(2).join(" ")
-      : this.dataValue.title;
+    const checkedTitle = this.#data.title.startsWith("FEATURED ARTICLE")
+      ? this.#data.title.split(" ").slice(2).join(" ")
+      : this.#data.title;
     titleLink.addContent(checkedTitle);
-    titleLink.container.href = `/blog/article/${this.dataValue.id}`;
+    titleLink.container.href = `/blog/article/${this.#data.id}`;
     articleTitle.container.append(titleLink.render());
     return articleTitle.render();
   }
@@ -30,9 +31,9 @@ class ArticlePreview extends Component {
     const articleTimeCreation = new Creation(
       "span",
       "article-preview__creation",
-      this.dataValue.author,
-      this.dataValue.createdAt,
-      this.dataValue.readTime
+      this.#data.author,
+      this.#data.createdAt,
+      this.#data.readTime
     );
 
     return articleTimeCreation.render();
@@ -43,7 +44,7 @@ class ArticlePreview extends Component {
       "p",
       "article-preview__description"
     );
-    articleDescription.addContent(this.dataValue.description);
+    articleDescription.addContent(this.#data.description);
     return articleDescription.render();
   }
 

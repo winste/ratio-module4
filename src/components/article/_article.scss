@@ -1,25 +1,29 @@
 $colortext: rgba(28, 28, 28, 0.5);
 
 .article {
-    &__container {
-        max-width: 652px;
-        margin: 0 auto;
-        padding-top: 55px;
+  &__container {
+    max-width: 652px;
+    margin: 0 auto;
+    padding-top: 55px;
+  }
+  &__title {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  &__img {
+    width: 100%;
+    max-width: 1316px;
+    max-height: 567px;
+    object-fit: cover;
+  }
+  &__creation {
+    display: flex;
+    justify-content: center;
+  }
+  &__description {
+    margin-bottom: 40px;
+    & > p {
+      padding-bottom: 30px;
     }
-    &__title {
-        font-family: Libre Baskerville;
-        text-align: center;
-        padding-bottom: 20px;
-    }
-    &__img {
-        width: 100%;
-        max-width: 1316px;
-        max-height: 567px;
-        object-fit: cover;
-    }
-    &__description {
-        & > p {
-            padding-bottom: 30px;
-        }
-    }
+  }
 }
