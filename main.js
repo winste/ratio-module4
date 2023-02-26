@@ -49,7 +49,7 @@ async function route() {
       await header.render(),
       `<h1>"404"</h1>`)
   }
-
+  document.getElementById("spinner").style.display = 'none';
   document.body.append(page.render());
 }
 
