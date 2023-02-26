@@ -5,9 +5,9 @@ import Creation from "../creation/creationInfo";
 import Author from "../author/author";
 import Pagination from "../pagination/pagination";
 
+
 class ArticlePage extends Component {
   #data;
-
   constructor(tagName, className) {
     super(tagName, className);
     this.url = window.location.pathname;
@@ -18,6 +18,16 @@ class ArticlePage extends Component {
     const articleNumber = this.url.match(regex);
     this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
     console.log(this.#data);
+  }
+
+  addTagsSEO() {
+    const head = document.getElementsByTagName('head')[0];
+    const tags = this.#data.seo;
+    head.append(
+      `<meta name="title" content="${tags.title}">`, 
+      `<meta name="keywords" content="${tags.keywords}">`, 
+      `<meta name="description" content="${tags.description}">`
+      )
   }
 
   addImage() {
@@ -41,6 +51,12 @@ class ArticlePage extends Component {
       this.#data.readTime
     );
     return articleTimeCreation.render();
+  }
+
+  createTag() {
+    const tag = new Component("span", "article__tag");
+    tag.addContent(`#${this.#data.tag.name}`);
+    return tag.render()
   }
 
   createDescription() {
@@ -71,10 +87,17 @@ class ArticlePage extends Component {
 
   async render() {
     await this.getData();
+    this.addTagsSEO();
+
     const wrapper = new Component("div", "article__container");
-    wrapper.container.append(
+    const head = new Component("div", "article__head");
+    head.container.append(
       await this.createTitle(),
       await this.createTimeCreation(),
+      await this.createTag(),
+    )
+    wrapper.container.append(
+      head.render(),
       await this.createDescription(),
       await this.createAboutAuthor()
     );

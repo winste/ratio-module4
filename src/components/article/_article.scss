@@ -11,7 +11,6 @@ $colortext: rgba(28, 28, 28, 0.5);
     margin-top: 55px;
   }
   &__title {
-    text-align: center;
     padding-bottom: 10px;
   }
   &__img {
@@ -20,9 +19,17 @@ $colortext: rgba(28, 28, 28, 0.5);
     max-height: 567px;
     object-fit: cover;
   }
+  &__head {
+    text-align: center;
+    padding-bottom: 25px;
+  }
   &__creation {
     display: flex;
     justify-content: center;
+  }
+  &__tag {
+    text-transform: lowercase;
+    color: $colortext;
   }
   &__description {
     margin-bottom: 40px;
