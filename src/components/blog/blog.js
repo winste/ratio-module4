@@ -14,7 +14,7 @@ class Blog extends Component {
     this.#data = await uploadedData("blog/articles/");
   }
 
-  async createArticles(limit = 20) {
+  async createArticles(limit) {
     this.#data = this.#data.slice(0, limit);
     const collectionArticles = new Component("div", "blog__articles")
 

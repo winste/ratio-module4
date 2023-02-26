@@ -3,7 +3,7 @@ import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import Creation from "../../templates/creation/creationInfo";
 import Author from "../../templates/author/author";
-
+import SwitchButtons from "../../templates/switch-buttons/switch-buttons";
 
 class ArticlePage extends Component {
   #data;
@@ -49,16 +49,23 @@ class ArticlePage extends Component {
   }
 
   createAboutAuthor() {
-    const authorBlock = new Component("div", "author")
+    const authorBlock = new Component("div", "author");
     const title = new Component("p", "author__title");
     const author = new Author("div", "author__card", this.#data.author);
     title.addContent("ABOUT THE AUTHOR");
-    authorBlock.container.append(
-      title.render(),
-      author.render()
-    )
+    authorBlock.container.append(title.render(), author.render());
 
     return authorBlock.render();
+  }
+
+  createSwitchButtons() {
+    const buttons = new SwitchButtons(
+      "div",
+      "navigation",
+      this.#data.prevId,
+      this.#data.nextId
+    );
+    return buttons.render();
   }
 
   async render() {
@@ -71,7 +78,11 @@ class ArticlePage extends Component {
       await this.createAboutAuthor()
     );
 
-    this.container.append(await this.addImage(), wrapper.render());
+    this.container.append(
+      await this.addImage(),
+      wrapper.render(),
+      await this.createSwitchButtons()
+    );
     return this.container;
   }
 }

@@ -1,0 +1,16 @@
+.button {
+      display: flex;
+      align-items: center;
+      max-width: 550px;
+      font-size: 18px;
+    &__title {
+      font-family: Libre Baskerville;
+      padding: 0 35px;
+    }
+    &__link {
+      font-weight: bold;
+    }
+    &__img--opacity {
+      opacity: 0.5;
+    }
+  }
