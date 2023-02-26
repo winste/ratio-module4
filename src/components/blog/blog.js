@@ -1,4 +1,4 @@
-import ArticlePreview from "../../templates/article-preview/article-preview";
+import ArticlePreview from "../article-preview/article-preview";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import "./_blog.scss";

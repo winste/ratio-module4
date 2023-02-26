@@ -1,5 +1,5 @@
 import "./_button.scss";
-import Component from "../component";
+import Component from "../../templates/component";
 
 
 class Button extends Component {

@@ -1,5 +1,5 @@
 import './_creationInfo.scss'
-import Component from "../component";
+import Component from "../../templates/component";
 import DateConversion from "../../utils/dateConversion";
 
 class Creation extends Component {

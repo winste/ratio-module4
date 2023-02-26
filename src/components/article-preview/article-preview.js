@@ -1,5 +1,5 @@
 import "./_article-preview.scss";
-import Component from "../component";
+import Component from "../../templates/component";
 import Creation from "../creation/creationInfo";
 
 class ArticlePreview extends Component {

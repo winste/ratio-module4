@@ -1,12 +1,13 @@
 import "./_article.scss";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
-import Creation from "../../templates/creation/creationInfo";
-import Author from "../../templates/author/author";
-import SwitchButtons from "../../templates/switch-buttons/switch-buttons";
+import Creation from "../creation/creationInfo";
+import Author from "../author/author";
+import Pagination from "../pagination/pagination";
 
 class ArticlePage extends Component {
   #data;
+
   constructor(tagName, className) {
     super(tagName, className);
     this.url = window.location.pathname;
@@ -58,10 +59,10 @@ class ArticlePage extends Component {
     return authorBlock.render();
   }
 
-  createSwitchButtons() {
-    const buttons = new SwitchButtons(
+  createPagination() {
+    const buttons = new Pagination(
       "div",
-      "navigation",
+      "pagination",
       this.#data.prevId,
       this.#data.nextId
     );
@@ -81,7 +82,7 @@ class ArticlePage extends Component {
     this.container.append(
       await this.addImage(),
       wrapper.render(),
-      await this.createSwitchButtons()
+      await this.createPagination()
     );
     return this.container;
   }

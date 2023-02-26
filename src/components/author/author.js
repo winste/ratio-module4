@@ -1,5 +1,5 @@
 import "./_author.scss";
-import Component from "../component";
+import Component from "../../templates/component";
 
 class Author extends Component {
   #data;

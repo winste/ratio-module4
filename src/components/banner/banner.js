@@ -1,6 +1,6 @@
 import "./_banner.scss";
 import Component from "../../templates/component";
-import ArticlePreview from "../../templates/article-preview/article-preview";
+import ArticlePreview from "../article-preview/article-preview";
 import uploadedData from "../../utils/uploadedData";
 
 class Banner extends Component {

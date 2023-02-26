@@ -1,10 +1,10 @@
-import "./_switch-buttons.scss";
-import Component from "../component";
+import "./_pagination.scss";
+import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import Button from "../button/button";
 
 
-class SwitchButtons extends Component {
+class Pagination extends Component {
   #prevId;
   #nextId;
   #prevTitle;
@@ -57,4 +57,4 @@ class SwitchButtons extends Component {
   }
 }
 
-export default SwitchButtons;
+export default Pagination;

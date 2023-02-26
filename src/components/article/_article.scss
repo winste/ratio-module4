@@ -1,15 +1,18 @@
 $colortext: rgba(28, 28, 28, 0.5);
 
 .article {
+  &__wrapper {
+    padding-bottom: 0;
+  }
   &__container {
     max-width: 652px;
-    margin: 0 auto;
+    margin: auto;
     margin-bottom: 160px;
-    padding-top: 55px;
+    margin-top: 55px;
   }
   &__title {
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   &__img {
     width: 100%;
