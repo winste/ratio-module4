@@ -1,11 +1,15 @@
-$colortext: rgba(28, 28, 28, 0.5);
+@import "../../styles/const";
+@import "../../styles/mixins/article-img";
+@import "../../styles/mixins/flexbox";
+
+$articleWidth: 652px;
 
 .article {
   &__wrapper {
     padding-bottom: 0;
   }
   &__container {
-    max-width: 652px;
+    max-width: $articleWidth;
     margin: auto;
     margin-bottom: 160px;
     margin-top: 55px;
@@ -14,22 +18,17 @@ $colortext: rgba(28, 28, 28, 0.5);
     padding-bottom: 10px;
   }
   &__img {
-    width: 100%;
-    max-width: 1316px;
-    max-height: 567px;
-    object-fit: cover;
+    @include article-img(1316px, 567px);
   }
   &__head {
     text-align: center;
     padding-bottom: 25px;
   }
   &__creation {
-    display: flex;
-    justify-content: center;
+    @include flex(true);
   }
   &__tag {
     text-transform: lowercase;
-    color: $colortext;
   }
   &__description {
     margin-bottom: 40px;

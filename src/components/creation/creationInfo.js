@@ -16,7 +16,7 @@ class Creation extends Component {
     const author = new Component("p", "creation-author");
     const delimiter = new Component("p", "creation-delimiter");
     const creationDate = new Component("p", "creation-date");
-    const readTime = new Component("p", "creation-read");
+    const readTime = new Component("p", "creation-readTime");
     author.addContent(this.author);
     creationDate.addContent(`${articleFullTime.render()} `);
     readTime.addContent(`(${articleFullTime.getReadingTime()} mins read)`);

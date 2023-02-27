@@ -1,18 +1,21 @@
+@import "../../styles/_const.scss";
+@import "../../styles/mixins/flexbox";
+
+$btnWidth: 550px;
+$btnFontSize: 18px;
+
 .button {
-  display: flex;
-  align-items: center;
-  max-width: 550px;
-  font-size: 18px;
+  @include flex(true);
+  font-family: $titleFontFamily;
+  max-width: $btnWidth;
+  font-size: $btnFontSize;
   &__title {
-    font-family: Libre Baskerville;
     padding: 0 35px;
     max-height: 145px;
     overflow: hidden;
   }
   &__link {
     font-weight: bold;
-    display: flex;
-    align-self: flex-end;
   }
   &__img--opacity {
     opacity: 0.5;

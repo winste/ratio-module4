@@ -1,22 +1,27 @@
+@import "../../styles/const";
+@import "../../styles/mixins/article-img";
+@import "../../styles/mixins/flexbox";
+
+$bannerHeight: 592px;
+$imgWidth: $containerSize - $containerPadding;
+$imgHeight: $bannerHeight - $containerPadding;
+$marginArticle: 45px;
+
 .banner {
   position: relative;
-  min-height: 592px;
+  min-height: $bannerHeight;
   padding-bottom: 0;
   &--move {
-    display: flex;
+    @include flex(true);
     justify-content: end;
-    align-items: center;
   }
   &__img {
+    @include article-img($imgWidth, $imgHeight);
     position: absolute;
-    width: 100%;
-    max-width: 1316px;
-    max-height: 567px;
-    object-fit: cover;
     z-index: -1;
   }
   &__info {
-    margin-left: 45px;
-    margin-right: 45px;
+    margin-left: $marginArticle;
+    margin-right: $marginArticle;
   }
 }

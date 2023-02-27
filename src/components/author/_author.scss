@@ -1,19 +1,19 @@
-$colortext: rgba(28, 28, 28, 0.5);
+@import "../../styles/const";
+@import "../../styles/mixins/flexbox";
 
 .author {
   &__title {
-    color: $colortext;
+    color: $colorOpacity;
     text-transform: uppercase;
     padding-bottom: 15px;
   }
   &__card {
-    display: flex;
+    @include flex;
   }
   &__description {
     padding-left: 37px;
   }
   &__nickname {
-    color: $colortext;
     padding: 10px 0;
   }
   &__about {

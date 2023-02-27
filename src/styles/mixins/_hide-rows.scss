@@ -1,0 +1,6 @@
+@mixin hide-rows($rows) {
+    display: -webkit-box;
+    -webkit-line-clamp: $rows;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

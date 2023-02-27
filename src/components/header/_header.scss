@@ -1,15 +1,20 @@
+@import "../../styles/const";
+@import "../../styles/mixins/flexbox";
+
+$headerFontSize: 20px;
+$padding: 31px;
+
 .header {
-  display: flex;
-  padding-top: 31px;
-  padding-bottom: 31px;
-  font-family: Libre Baskerville;
-  font-size: 20px;
+  @include flex;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  font-family: $titleFontFamily;
+  font-size: $headerFontSize;
   line-height: 24.8px;
 }
 
 .nav {
-  display: flex;
-  align-items: center;
+  @include flex(true);
   padding-left: 41px;
   &__item {
     text-transform: capitalize;

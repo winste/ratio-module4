@@ -1,31 +1,31 @@
-$colortext: rgba(28, 28, 28, 0.5);
+@import "../../styles/_const.scss";
+@import "../../styles/mixins/hide-rows";
+
+$articleBgColor: rgb(255, 255, 255);
+$articleWidth: 509px;
+$imgWidth: 371px;
+$imgHeight: 298px;
 
 .article-preview {
-  max-width: 509px;
-  background-color: white;
+  max-width: $articleWidth;
   padding-left: 55px;
+  background-color: $articleBgColor;
   &__img {
-    max-width: 371px;
-    max-height: 298px;
+    max-width: $imgWidth;
+    max-height: $imgHeight;
   }
   &__tag {
-    font-size: 20px;
-    color: $colortext;
+    font-size: $tagFontSize;
+    color: $colorOpacity;
     text-transform: uppercase;
     line-height: 27.24px;
   }
   &__title {
+    @include hide-rows(2);
     font-weight: bold;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
   &__description {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    @include hide-rows(4);
   }
   &--view {
     padding: 75px 40px;

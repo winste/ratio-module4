@@ -1,15 +1,16 @@
+$spinnerSize: 70px;
+$spinnerColor: rgb(140, 143, 142);
+$spinnerWidth: 4px;
+
 #spinner {
-    width: 70px;
-    height: 70px;
-    border-top-color: #8c8f8e;
-    border-left-color: #8c8f8e;
+    width: $spinnerSize;
+    height: $spinnerSize;
     margin: 0 auto;
     margin-top: 200px;
     animation: spinner .5s linear infinite;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
+    border-color: $spinnerColor transparent;
     border-style: solid;
-    border-width: 3px;
+    border-width: $spinnerWidth;
     border-radius: 50%;  
   }
   

@@ -4,13 +4,6 @@ class Component {
         this.container.className = className;
     }
 
-    createTitle(text, selector) {
-        const title = document.createElement('h2');
-        title.classList.add(selector);
-        title.innerText = text;
-        this.container.append(title);
-    }
-
     addContent(content) {
         this.container.innerHTML = content;
     }

@@ -14,6 +14,12 @@ class Blog extends Component {
     this.#data = await uploadedData("blog/articles/");
   }
 
+  createTitle() {
+    const title = new Component("h2", "blog__title");
+    title.addContent("Editor’s Picks");
+    return title.render();
+  }
+
   async createArticles(limit) {
     this.#data = this.#data.slice(0, limit);
     const collectionArticles = new Component("div", "blog__articles")
@@ -36,7 +42,10 @@ class Blog extends Component {
 
   async render(limit) {
     await this.getData();
-    this.container.append(await this.createArticles(limit));
+    this.container.append(
+      this.createTitle(), 
+      await this.createArticles(limit)
+      );
     return this.container;
   }
 }

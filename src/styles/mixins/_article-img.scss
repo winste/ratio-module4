@@ -1,0 +1,6 @@
+@mixin article-img($max-width, $max-height) {
+    width: 100%;
+    max-width: $max-width;
+    max-height: $max-height;
+    object-fit: cover;
+}

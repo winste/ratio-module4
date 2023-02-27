@@ -1,14 +1,20 @@
+@import "../../styles/_const.scss";
+@import "../../styles/mixins/flexbox";
+
+$aboutWidth: 800px;
+$aboutPadding: 80px 30px;
+
 .about {
-  max-width: 800px;
-  padding: 80px 30px;
+  max-width: $aboutWidth;
+  padding: $aboutPadding;
   &__title {
     padding: 60px 0 30px 0;
-    font-family: Libre Baskerville;
+    font-family: $titleFontFamily;
     text-align: center;
   }
   &__text {
     & > *:first-child {
-      display: flex;
+      @include flex;
       gap: 40px;
       margin-bottom: 30px;
     }

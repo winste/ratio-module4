@@ -11,7 +11,6 @@ const header = new Header("header", "header container");
 const banner = new Banner("section", "banner container");
 const bannerMove = new Banner("section", "banner banner--move container");
 const blog = new Blog("section", "blog container");
-blog.createTitle("Editor’s Picks", "blog__title");
 const about = new About("section", "about  container");
 const article = new ArticlePage("section", "article__wrapper container")
 
