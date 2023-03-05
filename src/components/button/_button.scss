@@ -1,17 +1,26 @@
 @import "../../styles/_const.scss";
 @import "../../styles/mixins/flexbox";
 
+
 $btnWidth: 550px;
 $btnFontSize: 18px;
 
 .button {
   @include flex(true);
-  font-family: $titleFontFamily;
+  flex: 1 1 0;
   max-width: $btnWidth;
+  font-family: $titleFontFamily;
   font-size: $btnFontSize;
+  gap: 30px;
+  &__prev {
+    justify-content: start;
+  }
+  &__next {
+    justify-content: end;
+  }
   &__title {
-    padding: 0 35px;
-    max-height: 145px;
+    position: relative;
+    max-height: 135px;
     overflow: hidden;
   }
   &__link {
@@ -19,5 +28,29 @@ $btnFontSize: 18px;
   }
   &__img--opacity {
     opacity: 0.5;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .button {
+    font-size: $btnFontSize - 6;
+    gap: 10px;
+    &__img {
+      max-width: 50px;
+      max-height: 50px;
+    }
+    &__title {
+      max-height: 45px;
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .button {
+    &__title {
+      display: none;
+    }
   }
 }

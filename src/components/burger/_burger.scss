@@ -1,0 +1,37 @@
+@import "../../styles/const";
+
+
+$burgerWidth: 40px;
+$burgerHeight: $burgerWidth;
+$burgerColor: rgba(0, 0, 0, 0.54);
+
+.burger {
+  display: none;
+  position: relative;
+  width: $burgerWidth;
+  height: $burgerHeight - 5;
+  cursor: pointer;
+  &__line {
+    position: absolute;
+    top: 15px;
+    left: 1px;
+    display: block;
+    height: 4px;
+    width: $burgerWidth - 4;
+    background-color: $burgerColor;
+    &-one {
+      transform: translateY(-10px);
+    }
+    &-three {
+      transform: translateY(10px);
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .burger {
+    display: block;
+    z-index: 2;
+  }
+}

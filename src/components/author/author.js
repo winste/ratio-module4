@@ -27,26 +27,21 @@ class Author extends Component {
   }
 
   createDescription() {
-    const text = new Component("div", "author__about");
+    const text = new Component("p", "author__about");
     text.addContent(this.#data.about);
     return text.render();
   }
 
   render() {
-    const descriptionWrapper = new Component("div", "author__description");
-    descriptionWrapper.container.append(
+    this.container.append(
+        this.createAvatar(),
         this.createTitle(),
         this.createNickname(),
         this.createDescription()
     )
-
-    this.container.append(
-        this.createAvatar(),
-        descriptionWrapper.render()
-    )
-
     return this.container;
   }
 }
+
 
 export default Author;

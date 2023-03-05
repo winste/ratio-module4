@@ -1,22 +1,33 @@
 @import "../../styles/_const.scss";
 @import "../../styles/mixins/flexbox";
 
+
 $delimiterSize: 3px;
-$readTimeFontSize: 14px;
 
 .creation {
-  @include flex;
+  @include flex(true);
+  flex-wrap: wrap;
   color: $colorOpacity;
+  gap: 8px;
   padding: 10px 0;
   &-delimiter {
     width: $delimiterSize;
     height: $delimiterSize;
     background-color: $colorOpacity;
     border-radius: 50%;
-    margin: 12px 10px 10px 10px;
   }
   &-readTime {
-    font-size: $readTimeFontSize;
+    font-size: $tabletFontSize;
     margin-left: 5px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .creation {
+    font-size: $tabletFontSize - 2;
+    &-readTime {
+      font-size: $tabletFontSize - 2;
+    }
   }
 }

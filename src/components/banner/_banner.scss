@@ -2,26 +2,62 @@
 @import "../../styles/mixins/article-img";
 @import "../../styles/mixins/flexbox";
 
-$bannerHeight: 592px;
-$imgWidth: $containerSize - $containerPadding;
-$imgHeight: $bannerHeight - $containerPadding;
+
+$imgWidth: $containerSize - $containerPadding * 2;
+$imgHeight: $articleTmageHeight - $containerPadding;
 $marginArticle: 45px;
 
 .banner {
-  position: relative;
-  min-height: $bannerHeight;
   padding-bottom: 0;
-  &--move {
-    @include flex(true);
-    justify-content: end;
+  &__wrapper {
+    position: relative;
+    min-height: $articleTmageHeight;
+    margin: 0 1px;
+    &--move {
+      @include flex(true);
+      justify-content: end;
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
   }
   &__img {
-    @include article-img($imgWidth, $imgHeight);
+    @include article-img;
     position: absolute;
     z-index: -1;
   }
   &__info {
     margin-left: $marginArticle;
     margin-right: $marginArticle;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .banner {
+    &__wrapper {
+      &--move {
+        display: block;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .banner {
+    padding-bottom: 25px;
+    &__img {
+      display: none;
+    }
+    &__wrapper {
+      min-height: auto;
+      &--move {
+        padding: 10px 0 20px 0;
+      }
+    }
+    &__info {
+      margin: auto;
+    }
   }
 }

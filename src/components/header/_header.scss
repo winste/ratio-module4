@@ -1,13 +1,13 @@
 @import "../../styles/const";
 @import "../../styles/mixins/flexbox";
 
+
 $headerFontSize: 20px;
-$padding: 31px;
+$navGap: 20px;
 
 .header {
-  @include flex;
-  padding-top: $padding;
-  padding-bottom: $padding;
+  @include flex(true);
+  position: relative;
   font-family: $titleFontFamily;
   font-size: $headerFontSize;
   line-height: 24.8px;
@@ -15,12 +15,42 @@ $padding: 31px;
 
 .nav {
   @include flex(true);
+  gap: $navGap;
   padding-left: 41px;
   &__item {
     text-transform: capitalize;
-    margin: 0 10px;
     &--active {
       font-weight: bold;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .nav {
+    &.open {
+      display: flex;
+    }
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 300px;
+    padding: 90px 20px 50px 20px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px 2px rgb(0, 0, 0);
+    z-index: 1;
+    &__item {
+      padding: 10px;
+      display: block;
     }
   }
 }

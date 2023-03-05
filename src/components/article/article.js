@@ -17,7 +17,6 @@ class ArticlePage extends Component {
     const regex = /\d+$/;
     const articleNumber = this.url.match(regex);
     this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
-    console.log(this.#data);
   }
 
   addTagsSEO() {
@@ -31,13 +30,15 @@ class ArticlePage extends Component {
   }
 
   addImage() {
+    const imageWrap = new Component("div", "article__img-wrapper")
     const articleImg = new Component("img", "article__img");
     articleImg.container.src = `${this.#data.images || "/images/plug.jpg"}`;
-    return articleImg.render();
+    imageWrap.container.append(articleImg.render());
+    return imageWrap.render();
   }
 
   createTitle() {
-    const title = new Component("h2", "article__title");
+    const title = new Component("h3", "article__title");
     title.addContent(this.#data.title);
     return title.render();
   }
@@ -66,12 +67,11 @@ class ArticlePage extends Component {
   }
 
   createAboutAuthor() {
-    const authorBlock = new Component("div", "author");
+    const authorBlock = new Component("div", "article__author author");
     const title = new Component("p", "author__title");
     const author = new Author("div", "author__card", this.#data.author);
     title.addContent("ABOUT THE AUTHOR");
     authorBlock.container.append(title.render(), author.render());
-
     return authorBlock.render();
   }
 

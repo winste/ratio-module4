@@ -1,5 +1,6 @@
+@import "./const";
+
 $spinnerSize: 70px;
-$spinnerColor: rgb(140, 143, 142);
 $spinnerWidth: 4px;
 
 #spinner {
@@ -8,7 +9,7 @@ $spinnerWidth: 4px;
     margin: 0 auto;
     margin-top: 200px;
     animation: spinner .5s linear infinite;
-    border-color: $spinnerColor transparent;
+    border-color: $colorOpacity transparent;
     border-style: solid;
     border-width: $spinnerWidth;
     border-radius: 50%;  

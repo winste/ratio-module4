@@ -2,7 +2,6 @@
 @import "./src/styles/_spinner.scss";
 @import "./src/styles/_const.scss";
 
-
 * {
   margin: 0;
   padding: 0;
@@ -13,12 +12,13 @@
   list-style: none;
 }
 
-
 .container {
   max-width: $containerSize;
   margin: 0 auto;
   padding: $containerPadding;
 }
+
+
 
 body {
   color: $mainColor;
@@ -49,4 +49,26 @@ h3 {
   font-weight: $titleFontWeight;
   font-size: $h3FontSize;
   line-height: 41px;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: $tabletFontSize;
+  }
+  h2 {
+    font-size: $h2FontSize - 6;
+  }
+  h3 {
+    font-size: $h3FontSize - 10;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: $h2FontSize - 18;
+  }
+  h3 {
+    font-size: $h3FontSize - 15;
+    line-height: 27px;
+  }
 }

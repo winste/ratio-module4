@@ -9,6 +9,7 @@ class Pagination extends Component {
   #nextId;
   #prevTitle;
   #nextTitle;
+  
   constructor(tagName, className, prevId, nextId) {
     super(tagName, className);
     this.#prevId = prevId;
@@ -29,7 +30,7 @@ class Pagination extends Component {
   createPrevButton() {
     const wrapper = new Button(
       "div",
-      "button",
+      "button button__prev",
       "prev",
       this.#prevId,
       this.#prevTitle
@@ -40,7 +41,7 @@ class Pagination extends Component {
   createNextButton() {
     const wrapper = new Button(
       "div",
-      "button",
+      "button button__next",
       "next",
       this.#nextId,
       this.#nextTitle
