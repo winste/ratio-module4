@@ -1,5 +1,6 @@
-import "./404.scss";
 import Component from "../../templates/component";
+import "./404.scss";
+
 
 class PageError extends Component {
   constructor(tagName, className) {
@@ -17,5 +18,6 @@ class PageError extends Component {
     return this.container;
   }
 }
+
 
 export default PageError;

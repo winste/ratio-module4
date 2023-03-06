@@ -1,8 +1,10 @@
 import Navigo from "navigo";
 import Pages from "./page";
 
+
 const router = new Navigo("/");
 const page = new Pages();
+
 
 router
   .on({

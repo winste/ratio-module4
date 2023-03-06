@@ -1,7 +1,7 @@
-import "./_pagination.scss";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import Button from "../button/button";
+import "./_pagination.scss";
 
 
 class Pagination extends Component {
@@ -57,5 +57,6 @@ class Pagination extends Component {
     return this.container;
   }
 }
+
 
 export default Pagination;

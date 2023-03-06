@@ -1,6 +1,7 @@
-import "./_article-preview.scss";
 import Component from "../../templates/component";
 import Creation from "../creation/creationInfo";
+import "./_article-preview.scss";
+
 
 class ArticlePreview extends Component {
   #data;
@@ -58,5 +59,6 @@ class ArticlePreview extends Component {
     return this.container;
   }
 }
+
 
 export default ArticlePreview;

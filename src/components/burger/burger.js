@@ -1,5 +1,6 @@
-import "./_burger.scss";
 import Component from "../../templates/component";
+import "./_burger.scss";
+
 
 class Burger extends Component {
   constructor(tagName, className) {
@@ -22,5 +23,6 @@ class Burger extends Component {
     return this.container;
   }
 }
+
 
 export default Burger;

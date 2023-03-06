@@ -1,9 +1,9 @@
-import "./_article.scss";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import Creation from "../creation/creationInfo";
 import Author from "../author/author";
 import Pagination from "../pagination/pagination";
+import "./_article.scss";
 
 
 class ArticlePage extends Component {
@@ -110,5 +110,6 @@ class ArticlePage extends Component {
     return this.container;
   }
 }
+
 
 export default ArticlePage;

@@ -1,5 +1,6 @@
-import "./_button.scss";
 import Component from "../../templates/component";
+import "./_button.scss";
+
 
 
 class Button extends Component {
@@ -52,5 +53,6 @@ class Button extends Component {
     return this.container;
   }
 }
+
 
 export default Button;

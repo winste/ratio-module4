@@ -3,6 +3,7 @@ import Navigation from "../../templates/navigation";
 import Burger from "../burger/burger";
 import "./_header.scss";
 
+
 class Header extends Component {
   navRoutes = {
     home: "/",
@@ -55,5 +56,6 @@ class Header extends Component {
     return this.container;
   }
 }
+
 
 export default Header;

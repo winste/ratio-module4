@@ -1,6 +1,6 @@
-import "./_about.scss";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
+import "./_about.scss";
 
 
 class About extends Component {

@@ -1,6 +1,7 @@
-import './_creationInfo.scss'
 import Component from "../../templates/component";
 import DateConversion from "../../utils/dateConversion";
+import './_creationInfo.scss';
+
 
 class Creation extends Component {
   constructor(tagName, clasName, author, createdAt, readTime) {
@@ -36,5 +37,6 @@ class Creation extends Component {
     return this.container;
   }
 }
+
 
 export default Creation;

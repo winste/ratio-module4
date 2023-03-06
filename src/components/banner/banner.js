@@ -1,7 +1,8 @@
-import "./_banner.scss";
 import Component from "../../templates/component";
 import ArticlePreview from "../article-preview/article-preview";
 import uploadedData from "../../utils/uploadedData";
+import "./_banner.scss";
+
 
 class Banner extends Component {
   #data;
@@ -45,5 +46,6 @@ class Banner extends Component {
     return this.container;
   }
 }
+
 
 export default Banner;
