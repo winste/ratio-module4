@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "navigo": "^8.11.1",
     "sass": "^1.57.1",
     "scss": "^0.2.4"
   },

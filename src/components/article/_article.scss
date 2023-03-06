@@ -21,7 +21,7 @@ $articleWidth: 652px;
   &__head {
     @include flex(true);
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     text-align: center;
     padding: 25px 0;
   }
