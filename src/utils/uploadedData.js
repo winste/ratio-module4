@@ -11,4 +11,5 @@ const uploadedData = async (url) => {
   }
 };
 
+
 export default uploadedData;

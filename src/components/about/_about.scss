@@ -31,7 +31,8 @@ $aboutWidth: 800px;
       width: 100% !important;
       height: 350px !important;
       object-fit: cover;
-      flex-basis: min-content;
+      flex-basis: 50%;
+      min-width: 50%;
     }
 
   }

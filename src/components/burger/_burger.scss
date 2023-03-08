@@ -1,7 +1,7 @@
 @import "../../styles/const";
 
 
-$burgerWidth: 40px;
+$burgerWidth: 45px;
 $burgerHeight: $burgerWidth;
 $burgerColor: rgba(0, 0, 0, 0.54);
 
@@ -13,7 +13,7 @@ $burgerColor: rgba(0, 0, 0, 0.54);
   cursor: pointer;
   &__line {
     position: absolute;
-    top: 15px;
+    top: 18px;
     left: 1px;
     display: block;
     height: 4px;

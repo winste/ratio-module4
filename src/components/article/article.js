@@ -3,6 +3,7 @@ import uploadedData from "../../utils/uploadedData";
 import Creation from "../creation/creationInfo";
 import Author from "../author/author";
 import Pagination from "../pagination/pagination";
+import PageError from "../404/404";
 import "./_article.scss";
 
 
@@ -16,6 +17,7 @@ class ArticlePage extends Component {
   async getData() {
     const regex = /\d+$/;
     const articleNumber = this.url.match(regex);
+    if (articleNumber === null) return this.#data = undefined;
     this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
   }
 
@@ -87,27 +89,34 @@ class ArticlePage extends Component {
 
   async render() {
     await this.getData();
-    this.addTagsSEO();
+    if (this.#data) {
+      this.addTagsSEO();
 
-    const wrapper = new Component("div", "article__container");
-    const head = new Component("div", "article__head");
-    head.container.append(
-      await this.createTitle(),
-      await this.createTimeCreation(),
-      await this.createTag(),
-    )
-    wrapper.container.append(
-      head.render(),
-      await this.createDescription(),
-      await this.createAboutAuthor()
-    );
+      const wrapper = new Component("div", "article__container");
+      const head = new Component("div", "article__head");
+      head.container.append(
+        await this.createTitle(),
+        await this.createTimeCreation(),
+        await this.createTag(),
+      )
+      wrapper.container.append(
+        head.render(),
+        await this.createDescription(),
+        await this.createAboutAuthor()
+      );
+  
+      this.container.append(
+        await this.addImage(),
+        wrapper.render(),
+        await this.createPagination()
+      );
+      return this.container;
+    }
+    else {
+      const error = new PageError("section", "error")
+      return error.render();
+    }
 
-    this.container.append(
-      await this.addImage(),
-      wrapper.render(),
-      await this.createPagination()
-    );
-    return this.container;
   }
 }
 

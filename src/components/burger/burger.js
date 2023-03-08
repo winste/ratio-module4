@@ -8,9 +8,9 @@ class Burger extends Component {
   }
 
   appendLine() {
-    const line = new Component("span", "burger__line burger__line-one");
-    const line2 = new Component("span", "burger__line burger__line-two");
-    const line3 = new Component("span", "burger__line burger__line-three");
+    const line = new Component("div", "burger__line burger__line-one");
+    const line2 = new Component("div", "burger__line burger__line-two");
+    const line3 = new Component("div", "burger__line burger__line-three");
     this.container.append(
       line.render(), 
       line2.render(), 
@@ -18,8 +18,17 @@ class Burger extends Component {
       );
   }
 
+  addListener() {
+    this.container.addEventListener("click", (e) => {
+      if (e.target.parentNode == this.container || e.target == this.container) {
+        document.getElementById("nav").classList.toggle("open");
+      }
+    });
+  }
+
   render() {
     this.appendLine();
+    this.addListener();
     return this.container;
   }
 }

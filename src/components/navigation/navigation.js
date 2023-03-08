@@ -1,4 +1,5 @@
-import Component from "./component";
+import Component from "../../templates/component";
+import "./_navigation.scss";
 
 
 class Navigation extends Component {

@@ -1,5 +1,5 @@
 import Component from "../../templates/component";
-import Navigation from "../../templates/navigation";
+import Navigation from "../navigation/navigation";
 import Burger from "../burger/burger";
 import "./_header.scss";
 
@@ -16,14 +16,17 @@ class Header extends Component {
   }
 
   addLogo() {
-    const logo = new Component("a", "header__logo");
-    logo.addContent(
-      `<img class="header__img logo" src="/images/logo.svg" alt="logo">`
-    );
-    window.location.pathname == this.navRoutes["home"]
-      ? ""
-      : (logo.container.href = this.navRoutes["home"]);
-    return logo.render();
+    const logoImg = new Component("img", "header__img logo");
+    logoImg.container.src = "/images/logo.svg";
+    logoImg.container.alt = "logo";
+
+    if (window.location.pathname == "/") {
+      return logoImg.render();
+    } else {
+      const logoLink = new Navigation("a", "header__logo", "/");
+      logoLink.container.append(logoImg.render());
+      return logoLink.render();
+    }
   }
 
   createNavigation() {
@@ -42,7 +45,7 @@ class Header extends Component {
   }
 
   createBurger() {
-    const burger = new Burger("span", "burger");
+    const burger = new Burger("div", "burger");
     burger.container.id = "burger";
     return burger.render();
   }

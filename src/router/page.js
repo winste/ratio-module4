@@ -28,7 +28,7 @@ class Pages {
       await this.#bannerMove.render(true)
     );
   }
-  
+
   async blog() {
     this.container.append(
       await this.#header.render(),
