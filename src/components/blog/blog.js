@@ -28,8 +28,8 @@ class Blog extends Component {
       const articleWrapper = new Component("div", "blog__article");
       const articleImgLink = new Component("a", "article-preview__img-link");
       const articleImg = new Component("img", "article-preview__img");
-      articleImgLink.container.href = `/blog/article/${articles.id}`;
       articleImg.container.src = `${articles.images || "/images/plug.jpg"}`;
+      articleImgLink.container.href = `/blog/article/${articles.id}`;
       articleImgLink.container.append(articleImg.render());
 
       const article = new ArticlePreview("div", "blog__info article-preview", articles);

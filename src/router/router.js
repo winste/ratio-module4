@@ -2,35 +2,47 @@ import Navigo from "navigo";
 import Pages from "./page";
 
 
-const router = new Navigo("/");
-const page = new Pages();
+class App {
+  constructor() {
+    this.container = document.body;
+  }
 
+  async renderNewPage() {
+    this.container.innerHTML = "";
 
-router
-  .on({
-    "/": async () => {
-      await page.home();
-      await page.render();
-    },
+    const page = new Pages();
+    const router = new Navigo("/");
 
-    "/blog": async () => {
-      await page.blog();
-      await page.render();
-    },
+    router
+      .on({
+        "/": async () => {
+          await page.home();
+        },
+      })
+      .on({
+        "/blog": async () => {
+          await page.blog();
+        },
+      })
+      .on({
+        "/about": async () => {
+          await page.about();
+        },
+      })
+      .on({
+        "/blog/article/:id": async () => {
+          await page.article();
+        },
+      })
+      .notFound(async () => {
+        await page.error();
+      })
+      .resolve();
+  }
 
-    "/about": async () => {
-      await page.about();
-      await page.render();
-    },
+  async start() {
+    await this.renderNewPage();
+  }
+}
 
-    "/blog/article/:id": async () => {
-      await page.article();
-      await page.render();
-    },
-  })
-  .notFound( async () => {
-    await page.error();
-    await page.render();
-  })
-  .resolve();
-  
+export default App;

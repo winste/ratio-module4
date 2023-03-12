@@ -1,17 +1,17 @@
 @import "./const";
 
-$spinnerSize: 70px;
-$spinnerWidth: 4px;
+$loaderSize: 70px;
+$loaderWidth: 5px;
 
-#spinner {
-    width: $spinnerSize;
-    height: $spinnerSize;
+.preloader {
+    width: $loaderSize;
+    height: $loaderSize;
     margin: 0 auto;
     margin-top: 200px;
     animation: spinner .5s linear infinite;
     border-color: $colorOpacity transparent;
     border-style: solid;
-    border-width: $spinnerWidth;
+    border-width: $loaderWidth;
     border-radius: 50%;  
   }
   

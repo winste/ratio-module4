@@ -1,15 +1,12 @@
 import "./style.scss";
-import "./src/router/router";
+import App from "./src/router/router";
 
-document.addEventListener("click", (e) => {
-  const burger = document.getElementById("burger");
-  const navigation = document.getElementById("nav");
+const app = new App();
+app.start();
 
-  if (
-    e.target != burger &&
-    e.target != navigation &&
-    navigation.classList.contains("open")
-  ) {
-    navigation.classList.remove("open");
-  }
-});
+
+
+
+
+
+
