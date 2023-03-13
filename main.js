@@ -7,17 +7,9 @@ app.start();
 
 
 window.addEventListener('popstate', () => {
-  // router(event.target.location.pathname);
-  // console.log(e.target.location.pathname);
-  // location.reload();
   document.getElementById("app").innerHTML = ""
-  window.history.replaceState(null, document.title, location.pathname);
-
+  app.start();
 })
-
-
-
-// window.onpopstate(() => app.start())
 
 
 

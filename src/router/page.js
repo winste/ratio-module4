@@ -52,14 +52,14 @@ class Pages {
       case "home":
         this.renderPage(
           this.#banner.render(),
-          this.#blog.render(3),
+          this.#blog.render(false, 3),
           this.#bannerMove.render(true)
         );
         break;
       case "blog":
         this.renderPage(
           this.#banner.render(), 
-          this.#blog.render()
+          this.#blog.render(true)
         );
         break;
       case "about":

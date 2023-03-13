@@ -68,5 +68,9 @@ $gap: 55px;
         border-width: 3px;
       }
     }
+    &__info {
+      gap: 0;
+      flex-direction: column;
+    }
   }
 }

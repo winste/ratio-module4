@@ -21,5 +21,6 @@ $headerFontSize: 20px;
 @media (max-width: 768px) {
   .header {
     justify-content: space-between;
+    align-items: center;
   }
 }

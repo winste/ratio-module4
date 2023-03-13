@@ -45,10 +45,10 @@ class Blog extends Component {
     });
   }
 
-  async render(limit) {
+  async render(renderCheck, limit) {
     await this.getData();
     this.container.append(this.createTitle(), await this.addArticles(limit));
-    this.infiniteRenderArticles()
+    if (renderCheck) this.infiniteRenderArticles()
     return this.container;
   }
 }
