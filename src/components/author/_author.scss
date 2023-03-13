@@ -1,7 +1,6 @@
 @import "../../styles/const";
 @import "../../styles/mixins/flexbox";
 
-
 $avatarWidth: 160px;
 $avatarHeight: $avatarWidth;
 
@@ -24,7 +23,6 @@ $avatarHeight: $avatarWidth;
   }
 }
 
-
 @media (max-width: 768px) {
   .author {
     max-width: 500px;
@@ -33,7 +31,6 @@ $avatarHeight: $avatarWidth;
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .author {

@@ -3,9 +3,9 @@ import "./_navigation.scss";
 
 
 class Navigation extends Component {
-  constructor(tagName, className, url) {
+  constructor(tagName, className, href) {
     super(tagName, className);
-    this.container.href = url;
+    this.container.href = href;
   }
   
   markActive() {

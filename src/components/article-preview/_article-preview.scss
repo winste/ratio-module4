@@ -2,22 +2,23 @@
 @import "../../styles/mixins/hide-rows";
 @import "../../styles/mixins/article-img";
 
-
 $articleBgColor: rgb(255, 255, 255);
-$articleWidth: 509px;
 $imgWidth: 370px;
 $imgHeight: 300px;
 $tagLineHeight: 28px;
 
 .article-preview {
-  max-width: $articleWidth;
   &__img {
     @include article-img;
     &-link {
+      display: block;
       max-width: $imgWidth;
       max-height: $imgHeight;
       min-width: 210px;
     }
+  }
+  &__content {
+    max-width: 509px;
   }
   &__tag {
     font-size: $tagFontSize;
@@ -33,15 +34,14 @@ $tagLineHeight: 28px;
     @include hide-rows(4);
   }
   &--view {
+    max-width: 509px;
     padding: 75px 40px;
     background-color: $articleBgColor;
   }
 }
 
-
 @media (max-width: 768px) {
   .article-preview {
-    max-width: $articleWidth - 135;
     &__tag {
       font-size: $tagFontSize - 6;
       line-height: $tagLineHeight - 8;
@@ -57,7 +57,6 @@ $tagLineHeight: 28px;
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .article-preview {

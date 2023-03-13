@@ -1,7 +1,6 @@
 @import "../../styles/_const.scss";
 @import "../../styles/mixins/flexbox";
 
-
 $delimiterSize: 3px;
 
 .creation {
@@ -21,7 +20,6 @@ $delimiterSize: 3px;
     margin-left: 5px;
   }
 }
-
 
 @media (max-width: 768px) {
   .creation {

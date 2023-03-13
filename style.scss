@@ -1,5 +1,4 @@
 @import "./src/styles/fonts";
-@import "./src/styles/_preloader.scss";
 @import "./src/styles/_const.scss";
 
 * {
@@ -11,14 +10,6 @@
   text-decoration: none;
   list-style: none;
 }
-
-.container {
-  max-width: $containerSize;
-  margin: 0 auto;
-  padding: $containerPadding;
-}
-
-
 
 body {
   color: $mainColor;
@@ -49,6 +40,12 @@ h3 {
   font-weight: $titleFontWeight;
   font-size: $h3FontSize;
   line-height: 41px;
+}
+
+.container {
+  max-width: $containerSize;
+  margin: 0 auto;
+  padding: 0 $containerPadding;
 }
 
 @media (max-width: 768px) {

@@ -22,21 +22,14 @@ class Blog extends Component {
 
   async createArticles(limit) {
     this.#data = this.#data.slice(0, limit);
-    const collectionArticles = new Component("div", "blog__articles")
+    const collectionArticles = new Component("div", "blog__articles");
 
     for (const articles of this.#data) {
       const articleWrapper = new Component("div", "blog__article");
-      const articleImgLink = new Component("a", "article-preview__img-link");
-      const articleImg = new Component("img", "article-preview__img");
-      articleImg.container.src = `${articles.images || "/images/plug.jpg"}`;
-      articleImgLink.container.href = `/blog/article/${articles.id}`;
-      articleImgLink.container.append(articleImg.render());
-
       const article = new ArticlePreview("div", "blog__info article-preview", articles);
-      articleWrapper.container.append(articleImgLink.render(), article.render());
+      articleWrapper.container.append(article.render());
       collectionArticles.container.append(articleWrapper.render());
     }
-    
     return collectionArticles.render();
   }
 

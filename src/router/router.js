@@ -7,7 +7,7 @@ class App {
     this.container = document.body;
   }
 
-  async renderNewPage() {
+  start() {
     this.container.innerHTML = "";
 
     const page = new Pages();
@@ -15,33 +15,13 @@ class App {
 
     router
       .on({
-        "/": async () => {
-          await page.home();
-        },
+        "/": () => page.render('home'),
+        "/blog": () => page.render('blog'),
+        "/about": () => page.render('about'),
+        "/blog/article/:id": () => page.render('article')
       })
-      .on({
-        "/blog": async () => {
-          await page.blog();
-        },
-      })
-      .on({
-        "/about": async () => {
-          await page.about();
-        },
-      })
-      .on({
-        "/blog/article/:id": async () => {
-          await page.article();
-        },
-      })
-      .notFound(async () => {
-        await page.error();
-      })
+      .notFound( () => page.render('error') )
       .resolve();
-  }
-
-  async start() {
-    await this.renderNewPage();
   }
 }
 

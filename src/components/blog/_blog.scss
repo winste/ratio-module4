@@ -1,7 +1,6 @@
 @import "../../styles/const";
 @import "../../styles/mixins/flexbox";
 
-
 $underlineColor: rgb(28, 28, 28);
 $gap: 55px;
 
@@ -9,7 +8,8 @@ $gap: 55px;
   @include flex(true);
   flex-direction: column;
   gap: $gap;
-  margin-bottom: 25px;
+  padding-top: 50px;
+  margin-bottom: 75px;
   &__title {
     position: relative;
     font-family: $bodyFontFamily;
@@ -32,8 +32,11 @@ $gap: 55px;
     @include flex;
     gap: $gap;
   }
+  &__info {
+    @include flex;
+    gap: 50px;
+  }
 }
-
 
 @media (max-width: 768px) {
   .blog {
@@ -45,7 +48,6 @@ $gap: 55px;
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .blog {

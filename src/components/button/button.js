@@ -2,7 +2,6 @@ import Component from "../../templates/component";
 import "./_button.scss";
 
 
-
 class Button extends Component {
   #side;
   #id;

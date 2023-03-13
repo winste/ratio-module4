@@ -1,16 +1,21 @@
 @import "../../styles/const";
 @import "../../styles/mixins/flexbox";
 
-
 $headerFontSize: 20px;
 
 .header {
-  @include flex(true);
+  @include flex();
   position: relative;
   font-family: $titleFontFamily;
   font-size: $headerFontSize;
   line-height: 24.8px;
+  padding-top: 30px;
+  padding-bottom:40px;
   gap: 50px;
+  &__logo {
+    @include flex(true);
+    align-self: center;
+  }
 }
 
 @media (max-width: 768px) {

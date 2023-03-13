@@ -10,6 +10,15 @@ class ArticlePreview extends Component {
     this.#data = data;
   }
 
+  addImage() {
+    const articleImgLink = new Component("a", "article-preview__img-link");
+    const articleImg = new Component("img", "article-preview__img");
+    articleImg.container.src = `${this.#data.images || "/images/plug.jpg"}`;
+    articleImgLink.container.href = `/blog/article/${this.#data.id}`;
+    articleImgLink.container.append(articleImg.render());
+    return articleImgLink.render();
+  }
+
   createTag() {
     const articleTag = new Component("p", "article-preview__tag");
     articleTag.addContent(this.#data.tag);
@@ -36,25 +45,27 @@ class ArticlePreview extends Component {
       this.#data.createdAt,
       this.#data.readTime
     );
-
     return articleTimeCreation.render();
   }
 
   createDescription() {
-    const articleDescription = new Component(
-      "p",
-      "article-preview__description"
-    );
+    const articleDescription = new Component("p", "article-preview__description");
     articleDescription.addContent(this.#data.description);
     return articleDescription.render();
   }
 
   render() {
-    this.container.append(
+    const previewContent = new Component("div", "article-preview__content");
+    previewContent.container.append(
       this.createTag(),
       this.createTitle(),
       this.createTimeCreation(),
       this.createDescription()
+    );
+
+    this.container.append(
+      this.addImage(),
+      previewContent.render()
     );
     return this.container;
   }

@@ -2,7 +2,6 @@
 @import "../../styles/mixins/article-img";
 @import "../../styles/mixins/flexbox";
 
-
 $imgWidth: $containerSize - $containerPadding * 2;
 $imgHeight: $articleTmageHeight - $containerPadding;
 $marginArticle: 45px;
@@ -16,9 +15,6 @@ $marginArticle: 45px;
     &--move {
       @include flex(true);
       justify-content: end;
-      @media (max-width: 768px) {
-        display: block;
-      }
     }
   }
   &__img {
@@ -29,9 +25,11 @@ $marginArticle: 45px;
   &__info {
     margin-left: $marginArticle;
     margin-right: $marginArticle;
+    & > a {
+      display: none;
+    }
   }
 }
-
 
 @media (max-width: 768px) {
   .banner {
@@ -42,7 +40,6 @@ $marginArticle: 45px;
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .banner {

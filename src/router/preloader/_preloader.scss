@@ -1,4 +1,4 @@
-@import "./const";
+@import "../../styles/_const.scss";
 
 $loaderSize: 70px;
 $loaderWidth: 5px;
@@ -6,8 +6,7 @@ $loaderWidth: 5px;
 .preloader {
     width: $loaderSize;
     height: $loaderSize;
-    margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 100px;
     animation: spinner .5s linear infinite;
     border-color: $colorOpacity transparent;
     border-style: solid;

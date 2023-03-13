@@ -6,6 +6,7 @@ import ArticlePage from "../../src/components/article/article";
 import Component from "../templates/component";
 import PageError from "../../src/components/404/404";
 import App from "./router";
+import "./preloader/_preloader.scss"
 
 class Pages {
   #header = new Header("header", "header container");
@@ -15,88 +16,71 @@ class Pages {
   #about = new About("section", "about container");
   #article = new ArticlePage("section", "article container");
   #error = new PageError("section", "error container");
-  #preloader = new Component("div", "preloader");
+  #preloader = new Component("div", "preloader container");
 
   constructor() {
     this.container = document.body;
-  }
-
-  renderPage(...components) {
-    for (const component of components) {
-      this.container.append(component);
-    }
-    this.linksPushState()
-    this.removePreloader();
-  }
-
-  addPreloader() {
+    this.app = document.createElement("div");
+    this.app.id = "app";
     this.container.append(
-      this.#preloader.render()
+      this.#header.render(),
+      this.#preloader.render(),
+      this.app
     );
   }
 
-  removePreloader() {
+  async renderPage(...components) {
+    for (const component of components) {
+      this.app.append(await component);
+    }
+    this.linksPushState();
     this.#preloader.render().remove();
   }
 
   linksPushState() {
-    for (let link of document.body.getElementsByTagName("a")) {
+    for (const link of document.body.getElementsByTagName("a")) {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        window.history.pushState(null, "", new URL(e.currentTarget.href).pathname);
+        window.history.pushState(null, null, new URL(e.currentTarget.href).pathname);
         new App().start();
       });
     }
   }
 
-  async home() {
-    this.addPreloader();
-    this.renderPage(
-      await this.#header.render(),
-      await this.#banner.render(),
-      await this.#blog.render(3),
-      await this.#bannerMove.render(true)
-    );
-  }
-
-  async blog() {
-    this.addPreloader();
-    this.renderPage(
-      await this.#header.render(),
-      await this.#banner.render(),
-      await this.#blog.render()
-    );
-  }
-
-  async about() {
-    this.addPreloader();
-    this.renderPage(
-      await this.#header.render(), 
-      await this.#about.render()
-    );
-  }
-
-  async article() {
-    this.addPreloader();
-    this.renderPage(
-      await this.#header.render(), 
-      await this.#article.render()
-    );
-  }
-
-  async error() {
-    this.addPreloader();
-    this.renderPage(
-      await this.#header.render(), 
-      await this.#error.render()
-    );
-  }
-
-  async render() {
-    return this.container;
+  render(pageName) {
+    switch (pageName) {
+      case "home":
+        this.renderPage(
+          this.#banner.render(),
+          this.#blog.render(3),
+          this.#bannerMove.render(true)
+        );
+        break;
+      case "blog":
+        this.renderPage(
+          this.#banner.render(), 
+          this.#blog.render()
+        );
+        break;
+      case "about":
+        this.renderPage(
+          this.#about.render()
+        );
+        break;
+      case "article":
+        this.renderPage(
+          this.#article.render()
+        );
+        break;
+      case "error":
+        this.renderPage(
+          this.#error.render()
+        );
+        break;
+      default:
+        break;
+    }
   }
 }
 
 export default Pages;
-
-

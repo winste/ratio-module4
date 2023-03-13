@@ -1,7 +1,6 @@
 @import "../../styles/_const.scss";
 @import "../../styles/mixins/flexbox";
 
-
 $btnWidth: 550px;
 $btnFontSize: 18px;
 
@@ -31,7 +30,6 @@ $btnFontSize: 18px;
   }
 }
 
-
 @media (max-width: 768px) {
   .button {
     font-size: $btnFontSize - 6;
@@ -45,7 +43,6 @@ $btnFontSize: 18px;
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .button {

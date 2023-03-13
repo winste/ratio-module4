@@ -1,6 +1,5 @@
 @import "../../styles/const";
 
-
 $burgerWidth: 45px;
 $burgerHeight: $burgerWidth;
 $burgerColor: rgba(0, 0, 0, 0.54);
@@ -27,7 +26,6 @@ $burgerColor: rgba(0, 0, 0, 0.54);
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .burger {
