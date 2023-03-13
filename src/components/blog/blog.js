@@ -3,7 +3,6 @@ import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
 import "./_blog.scss";
 
-
 class Blog extends Component {
   #data;
   constructor(tagName, className) {
@@ -12,6 +11,7 @@ class Blog extends Component {
 
   async getData() {
     this.#data = await uploadedData("blog/articles/");
+    this.collectionArticles = new Component("div", "blog__articles");
   }
 
   createTitle() {
@@ -20,28 +20,37 @@ class Blog extends Component {
     return title.render();
   }
 
-  async createArticles(limit) {
-    this.#data = this.#data.slice(0, limit);
-    const collectionArticles = new Component("div", "blog__articles");
+  async addArticles(number) {
+    this.#data = this.#data.slice(0, number);
 
     for (const articles of this.#data) {
       const articleWrapper = new Component("div", "blog__article");
       const article = new ArticlePreview("div", "blog__info article-preview", articles);
       articleWrapper.container.append(article.render());
-      collectionArticles.container.append(articleWrapper.render());
+      this.collectionArticles.container.append(articleWrapper.render());
     }
-    return collectionArticles.render();
+    return this.collectionArticles.render();
+  }
+
+  infiniteRenderArticles() {
+    window.addEventListener("scroll", () => {
+      const windowHeight = document.documentElement.clientHeight;
+      const lastArticle = document.querySelector(".blog__articles").lastChild;
+      const lastArticlePosition = lastArticle.getBoundingClientRect().top + scrollY;
+      const lastArticleHeight = lastArticle.offsetHeight;
+
+      if (scrollY > lastArticlePosition + lastArticleHeight - windowHeight) {
+        this.addArticles();
+      }
+    });
   }
 
   async render(limit) {
     await this.getData();
-    this.container.append(
-      this.createTitle(), 
-      await this.createArticles(limit)
-      );
+    this.container.append(this.createTitle(), await this.addArticles(limit));
+    this.infiniteRenderArticles()
     return this.container;
   }
 }
-
 
 export default Blog;
