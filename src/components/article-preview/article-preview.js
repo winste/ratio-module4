@@ -15,7 +15,7 @@ class ArticlePreview extends Component {
     const articleImg = new Component("img", "article-preview__img");
     articleImg.container.src = `${this.#data.images || "/images/plug.jpg"}`;
     articleImgLink.container.href = `/blog/article/${this.#data.id}`;
-    articleImgLink.container.append(articleImg.render());
+    articleImgLink.addComponents(articleImg.render());
     return articleImgLink.render();
   }
 

@@ -4,7 +4,7 @@
 $headerFontSize: 20px;
 
 .header {
-  @include flex();
+  @include flex;
   position: relative;
   font-family: $titleFontFamily;
   font-size: $headerFontSize;

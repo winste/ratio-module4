@@ -21,7 +21,7 @@ class Button extends Component {
     if (this.#id !== null) {
       const imgLink = new Component("a", "button__link");
       imgLink.container.href = `/blog/article/${this.#id}`;
-      imgLink.container.append(img.render());
+      imgLink.addComponents(img.render());
       return imgLink.render();
     } else {
       img.container.classList.add("button__img--opacity");
@@ -38,9 +38,9 @@ class Button extends Component {
       this.#side == "prev"
         ? title.addContent(`Go back: `)
         : title.addContent(`Next up: `);
-      title.container.append(titleLink.render());
+      title.addComponents(titleLink.render());
     } else {
-      title.addContent(`No more articles.`);
+      title.addContent(`No more articles`);
     }
     return title.render();
   }

@@ -21,21 +21,28 @@ class ArticlePage extends Component {
     this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
   }
 
+  removeTagsSEO() {
+    const metaTagsList = ["title", "keywords", "description"];
+    for (const metaTagName of metaTagsList) {
+      const metaTag = document.querySelector(`meta[name="${metaTagName}"]`);
+      if (metaTag) metaTag.remove();
+    }
+  }
+
   addTagsSEO() {
     const head = document.getElementsByTagName('head')[0];
     const tags = this.#data.seo;
-    head.append(
-      `<meta name="title" content="${tags.title}">`, 
-      `<meta name="keywords" content="${tags.keywords}">`, 
-      `<meta name="description" content="${tags.description}">`
-      )
+    head.insertAdjacentHTML("beforeend",
+        `<meta name="title" content="${tags.title}" >
+        <meta name="keywords" content="${tags.keywords}"> 
+        <meta name="description" content="${tags.description}">`)
   }
 
   addImage() {
     const imageWrap = new Component("div", "article__img-wrapper")
     const articleImg = new Component("img", "article__img");
     articleImg.container.src = `${this.#data.images || "/images/plug.jpg"}`;
-    imageWrap.container.append(articleImg.render());
+    imageWrap.addComponents(articleImg.render());
     return imageWrap.render();
   }
 
@@ -72,8 +79,8 @@ class ArticlePage extends Component {
     const authorBlock = new Component("div", "article__author author");
     const title = new Component("p", "author__title");
     const author = new Author("div", "author__card", this.#data.author);
-    title.addContent("ABOUT THE AUTHOR");
-    authorBlock.container.append(title.render(), author.render());
+    title.addContent("about the author");
+    authorBlock.addComponents(title.render(), author.render());
     return authorBlock.render();
   }
 
@@ -90,16 +97,18 @@ class ArticlePage extends Component {
   async render() {
     await this.getData();
     if (this.#data) {
+      this.removeTagsSEO();
       this.addTagsSEO();
-
-      const wrapper = new Component("div", "article__container");
+      
       const head = new Component("div", "article__head");
-      head.container.append(
+      head.addComponents(
         await this.createTitle(),
         await this.createTimeCreation(),
         await this.createTag(),
       )
-      wrapper.container.append(
+
+      const wrapper = new Component("div", "article__container");
+      wrapper.addComponents(
         head.render(),
         await this.createDescription(),
         await this.createAboutAuthor()

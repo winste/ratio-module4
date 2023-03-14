@@ -29,16 +29,13 @@ class Banner extends Component {
     return articlePreview.render();
   }
 
-  async render(move = false) {
+  async render(move) {
     await this.getData();
 
     const wrapper = new Component("div", "banner__wrapper");
     if (move) wrapper.container.classList.add("banner__wrapper--move");
-
-    wrapper.container.append(
-      this.addImg(),
-      this.createArtice() 
-    )
+    wrapper.addComponents(this.addImg(),this.createArtice());
+    
     this.container.append(
       wrapper.render()
       );

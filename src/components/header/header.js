@@ -24,14 +24,14 @@ class Header extends Component {
       return logoImg.render();
     } else {
       const logoLink = new Navigation("a", "header__logo", "/");
-      logoLink.container.append(logoImg.render());
+      logoLink.addComponents(logoImg.render());
       return logoLink.render();
     }
   }
 
   createNavigation() {
     const nav = new Component("nav", "nav");
-    nav.container.id = "nav";
+    nav.addId = "nav";
 
     for (const route in this.navRoutes) {
       const navItem = new Navigation("a", "nav__item", this.navRoutes[route]);
@@ -39,14 +39,14 @@ class Header extends Component {
       if (window.location.pathname == this.navRoutes[route]) {
         navItem.markActive();
       }
-      nav.container.append(navItem.render());
+      nav.addComponents(navItem.render());
     }
     return nav.render();
   }
 
   createBurger() {
     const burger = new Burger("div", "burger");
-    burger.container.id = "burger";
+    burger.addId = "burger";
     return burger.render();
   }
 

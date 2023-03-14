@@ -11,6 +11,10 @@
   list-style: none;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   color: $mainColor;
   font-size: $mainFontSize;

@@ -18,13 +18,15 @@ $navGap: 20px;
   .nav {
     &.open {
       @include flex;
+      min-width: 100%;
+      min-height: 100vh;
     }
     display: none;
     position: absolute;
     top: 0;
     right: 0;
     min-width: 300px;
-    padding: 90px 20px 50px 20px;
+    padding: 90px 20px;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 15px 2px rgb(0, 0, 0);

@@ -26,22 +26,17 @@ class Blog extends Component {
     for (const articles of this.#data) {
       const articleWrapper = new Component("div", "blog__article");
       const article = new ArticlePreview("div", "blog__info article-preview", articles);
-      articleWrapper.container.append(article.render());
-      this.collectionArticles.container.append(articleWrapper.render());
+      articleWrapper.addComponents(article.render());
+      this.collectionArticles.addComponents(articleWrapper.render());
     }
     return this.collectionArticles.render();
   }
 
   infiniteRenderArticles() {
-    window.addEventListener("scroll", () => {
-      const windowHeight = document.documentElement.clientHeight;
-      const lastArticle = document.querySelector(".blog__articles").lastChild;
-      const lastArticlePosition = lastArticle.getBoundingClientRect().top + scrollY;
-      const lastArticleHeight = lastArticle.offsetHeight;
-
-      if (scrollY > lastArticlePosition + lastArticleHeight - windowHeight) {
+    window.addEventListener("scroll" || "touchmove", () => {
+      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
         this.addArticles();
-      }
+     }
     });
   }
 

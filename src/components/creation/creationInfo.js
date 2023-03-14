@@ -22,7 +22,7 @@ class Creation extends Component {
     creationDate.addContent(`${articleFullTime.render()} `);
     readTime.addContent(`(${articleFullTime.getReadingTime()} mins read)`);
 
-    articleTimeCreation.container.append(
+    articleTimeCreation.addComponents(
       author.render(),
       delimiter.render(),
       creationDate.render(),

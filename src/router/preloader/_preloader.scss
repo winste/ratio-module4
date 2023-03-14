@@ -4,17 +4,21 @@ $loaderSize: 70px;
 $loaderWidth: 5px;
 
 .preloader {
-    width: $loaderSize;
-    height: $loaderSize;
-    margin-top: 100px;
-    animation: spinner .5s linear infinite;
-    border-color: $colorOpacity transparent;
-    border-style: solid;
-    border-width: $loaderWidth;
-    border-radius: 50%;  
+  width: $loaderSize;
+  height: $loaderSize;
+  margin-top: 100px;
+  animation: spinner 0.5s linear infinite;
+  border-color: $colorOpacity transparent;
+  border-style: solid;
+  border-width: $loaderWidth;
+  border-radius: 50%;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @keyframes spinner {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
   }
+}

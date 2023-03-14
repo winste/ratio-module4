@@ -8,6 +8,22 @@ class Component {
     this.container.innerHTML = content;
   }
 
+  addId(id) {
+    this.container.id = id;
+  }
+
+  addComponents(...components) {
+    this.container.append(...components);
+  }
+
+  addHref(href) {
+    this.container.href = href;
+  }
+
+  addSrc(src) {
+    this.container.src = src;
+  }
+
   render() {
     return this.container;
   }

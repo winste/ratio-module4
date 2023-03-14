@@ -32,9 +32,9 @@ class Pages {
   async renderPage(...components) {
     for (const component of components) {
       this.app.append(await component);
+      this.#preloader.render().remove();
     }
     this.linksPushState();
-    this.#preloader.render().remove();
   }
 
   linksPushState() {
