@@ -11,17 +11,17 @@ class Component {
   addId(id) {
     this.container.id = id;
   }
-
-  addComponents(...components) {
-    this.container.append(...components);
-  }
-
+  
   addHref(href) {
     this.container.href = href;
   }
 
   addSrc(src) {
     this.container.src = src;
+  }
+
+  addComponents(...components) {
+    this.container.append(...components);
   }
 
   render() {

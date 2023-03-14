@@ -6,6 +6,5 @@ app.start();
 
 
 window.addEventListener('popstate', () => {
-  document.getElementById("app").innerHTML = ""
   app.start();
 })

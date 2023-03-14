@@ -13,8 +13,8 @@ class ArticlePreview extends Component {
   addImage() {
     const articleImgLink = new Component("a", "article-preview__img-link");
     const articleImg = new Component("img", "article-preview__img");
-    articleImg.container.src = `${this.#data.images || "/images/plug.jpg"}`;
-    articleImgLink.container.href = `/blog/article/${this.#data.id}`;
+    articleImg.addSrc(`${this.#data.images || "/images/plug.jpg"}`);
+    articleImgLink.addHref(`/blog/article/${this.#data.id}`);
     articleImgLink.addComponents(articleImg.render());
     return articleImgLink.render();
   }
@@ -32,8 +32,8 @@ class ArticlePreview extends Component {
       ? this.#data.title.split(" ").slice(2).join(" ")
       : this.#data.title;
     titleLink.addContent(checkedTitle);
-    titleLink.container.href = `/blog/article/${this.#data.id}`;
-    articleTitle.container.append(titleLink.render());
+    titleLink.addHref(`/blog/article/${this.#data.id}`);
+    articleTitle.addComponents(titleLink.render());
     return articleTitle.render();
   }
 
@@ -56,7 +56,7 @@ class ArticlePreview extends Component {
 
   render() {
     const previewContent = new Component("div", "article-preview__content");
-    previewContent.container.append(
+    previewContent.addComponents(
       this.createTag(),
       this.createTitle(),
       this.createTimeCreation(),

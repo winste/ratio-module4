@@ -11,7 +11,7 @@ class Author extends Component {
 
   createAvatar() {
     const avatar = new Component("img", "author__img");
-    avatar.container.src = `${this.#data.images || "/images/avatar.png"}`;
+    avatar.addSrc(`${this.#data.images || "/images/avatar.png"}`);
     return avatar.render();
   }
 

@@ -16,7 +16,7 @@ class Banner extends Component {
 
   addImg() {
     const bannerImg = new Component("img", "banner__img");
-    bannerImg.container.src = `${this.#data.image}`;
+    bannerImg.addSrc(`${this.#data.image}`);
     return bannerImg.render();
   }
 

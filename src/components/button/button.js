@@ -16,11 +16,11 @@ class Button extends Component {
 
   addImg() {
     const img = new Component("img", "button__img");
-    img.container.src = `/images/btn-${this.#side}.svg`;
+    img.addSrc(`/images/btn-${this.#side}.svg`);
 
     if (this.#id !== null) {
       const imgLink = new Component("a", "button__link");
-      imgLink.container.href = `/blog/article/${this.#id}`;
+      imgLink.addHref(`/blog/article/${this.#id}`);
       imgLink.addComponents(img.render());
       return imgLink.render();
     } else {
@@ -33,7 +33,7 @@ class Button extends Component {
     const title = new Component("p", "button__title");
     if (this.#id !== null) {
       const titleLink = new Component("a", "button__link");
-      titleLink.container.href = `/blog/article/${this.#id}`;
+      titleLink.addHref(`/blog/article/${this.#id}`);
       titleLink.addContent(`${this.#title}`);
       this.#side == "prev"
         ? title.addContent(`Go back: `)

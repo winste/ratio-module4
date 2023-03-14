@@ -7,11 +7,11 @@ class Blog extends Component {
   #data;
   constructor(tagName, className) {
     super(tagName, className);
+    this.collectionArticles = new Component("div", "blog__articles");
   }
 
   async getData() {
     this.#data = await uploadedData("blog/articles/");
-    this.collectionArticles = new Component("div", "blog__articles");
   }
 
   createTitle() {

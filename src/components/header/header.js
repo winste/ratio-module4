@@ -5,42 +5,28 @@ import "./_header.scss";
 
 
 class Header extends Component {
-  navRoutes = {
-    home: "/",
-    blog: "/blog",
-    about: "/about",
-  };
-
   constructor(tagName, className) {
     super(tagName, className);
   }
 
   addLogo() {
     const logoImg = new Component("img", "header__img logo");
-    logoImg.container.src = "/images/logo.svg";
+    logoImg.addSrc("/images/logo.svg");
     logoImg.container.alt = "logo";
 
     if (window.location.pathname == "/") {
       return logoImg.render();
     } else {
-      const logoLink = new Navigation("a", "header__logo", "/");
+      const logoLink = new Component("a", "header__logo");
+      logoLink.addHref("/")
       logoLink.addComponents(logoImg.render());
       return logoLink.render();
     }
   }
 
   createNavigation() {
-    const nav = new Component("nav", "nav");
-    nav.addId = "nav";
-
-    for (const route in this.navRoutes) {
-      const navItem = new Navigation("a", "nav__item", this.navRoutes[route]);
-      navItem.addContent(route);
-      if (window.location.pathname == this.navRoutes[route]) {
-        navItem.markActive();
-      }
-      nav.addComponents(navItem.render());
-    }
+    const nav = new Navigation("nav", "nav");
+    nav.addId("nav");
     return nav.render();
   }
 
