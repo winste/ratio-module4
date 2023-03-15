@@ -1,5 +1,5 @@
 import Navigo from "navigo";
-import Pages from "./page";
+import Pages from "./pages";
 
 
 class App {

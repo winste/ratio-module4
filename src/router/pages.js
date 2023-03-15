@@ -1,12 +1,13 @@
-import Header from "../../src/components/header/header";
-import Banner from "../../src/components/banner/banner";
-import Blog from "../../src/components/blog/blog";
-import About from "../../src/components/about/about";
-import ArticlePage from "../../src/components/article/article";
+import Header from "../components/header/header";
+import Banner from "../components/banner/banner";
+import Blog from "../components/blog/blog";
+import About from "../components/about/about";
+import ArticlePage from "../components/article/article";
 import Component from "../templates/component";
-import PageError from "../../src/components/404/404";
+import PageError from "../components/404/404";
 import App from "./router";
 import "./preloader/_preloader.scss"
+
 
 class Pages {
   #header = new Header("header", "header container");
@@ -32,6 +33,7 @@ class Pages {
   async renderPage(...components) {
     for (const component of components) {
       this.app.append(await component);
+      this.container.className = "";
       this.#preloader.render().remove();
     }
     this.linksPushState();
@@ -82,5 +84,6 @@ class Pages {
     }
   }
 }
+
 
 export default Pages;

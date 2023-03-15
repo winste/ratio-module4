@@ -24,11 +24,10 @@ class Blog extends Component {
     this.#data = this.#data.slice(0, number);
 
     for (const articles of this.#data) {
-      const articleWrapper = new Component("div", "blog__article");
-      const article = new ArticlePreview("div", "blog__info article-preview", articles);
-      articleWrapper.addComponents(article.render());
-      this.collectionArticles.addComponents(articleWrapper.render());
+      const article = new ArticlePreview("div", "blog__article article-preview", articles);
+      this.collectionArticles.addComponents(article.render());
     }
+    
     return this.collectionArticles.render();
   }
 
@@ -42,7 +41,10 @@ class Blog extends Component {
 
   async render(renderCheck, limit) {
     await this.getData();
-    this.container.append(this.createTitle(), await this.addArticles(limit));
+    this.container.append(
+      this.createTitle(), 
+      await this.addArticles(limit)
+    );
     if (renderCheck) this.infiniteRenderArticles()
     return this.container;
   }

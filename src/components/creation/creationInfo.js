@@ -19,7 +19,7 @@ class Creation extends Component {
     const creationDate = new Component("p", "creation-date");
     const readTime = new Component("p", "creation-readTime");
     author.addContent(this.author);
-    creationDate.addContent(`${articleFullTime.render()} `);
+    creationDate.addContent(`${articleFullTime.render()}`);
     readTime.addContent(`(${articleFullTime.getReadingTime()} mins read)`);
 
     articleTimeCreation.addComponents(

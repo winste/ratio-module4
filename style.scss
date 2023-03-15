@@ -52,6 +52,11 @@ h3 {
   padding: 0 $containerPadding;
 }
 
+.modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 @media (max-width: 768px) {
   body {
     font-size: $tabletFontSize;
