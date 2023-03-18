@@ -11,7 +11,7 @@ class Header extends Component {
 
   addLogo() {
     const logoImg = new Component("img", "header__img logo");
-    logoImg.addSrc("/images/logo.svg");
+    logoImg.addSrc("../../ratio-module4/images/logo.svg");
     logoImg.container.alt = "logo";
 
     // если генерируется не домашняя страница, то добавляем ссылку в лого
