@@ -13,7 +13,7 @@ class ArticlePreview extends Component {
   addImage() {
     const articleImgLink = new Component("a", "article-preview__img-link");
     const articleImg = new Component("img", "article-preview__img");
-    articleImg.addSrc(`${this.#data.images || "../../images/plug.jpg"}`);
+    articleImg.addSrc(`${this.#data.images || "../ratio-module4/images/plug.jpg"}`);
     articleImgLink.addHref(`/blog/article/${this.#data.id}`);
     articleImgLink.addComponents(articleImg.render());
     return articleImgLink.render();

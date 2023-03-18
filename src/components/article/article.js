@@ -32,7 +32,7 @@ class ArticlePage extends Component {
   addImage() {
     const imageWrap = new Component("div", "article__img-wrapper")
     const articleImg = new Component("img", "article__img");
-    articleImg.addSrc(`${this.#data.images || "/ratio-module4/images/plug.jpg"}`);
+    articleImg.addSrc(`${this.#data.images || "../../ratio-module4/images/plug.jpg"}`);
     imageWrap.addComponents(articleImg.render());
     return imageWrap.render();
   }
