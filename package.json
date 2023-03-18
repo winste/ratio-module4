@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "SPA on JS & SCSS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winste/ratio-module4.git"
+  },
+  "homepage": "https://github.com/winste/ratio-module4#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,7 +16,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://github.com/winste/ratio-module4#readme",
   "dependencies": {
     "gh-pages": "^5.0.0",
     "navigo": "^8.11.1",
