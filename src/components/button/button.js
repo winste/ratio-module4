@@ -16,9 +16,9 @@ class Button extends Component {
 
   addImg() {
     const img = new Component("img", "button__img");
-    img.addSrc(`/images/btn-${this.#side}.svg`);
+    img.addSrc(`/ratio-module4/images/btn-${this.#side}.svg`);
 
-    if (this.#id !== null) {
+    if (this.#id !== null) {  // если следующая статься есть
       const imgLink = new Component("a", "button__link");
       imgLink.addHref(`/blog/article/${this.#id}`);
       imgLink.addComponents(img.render());

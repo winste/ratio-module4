@@ -4,7 +4,7 @@ import uploadedData from "../../utils/uploadedData";
 import "./_blog.scss";
 
 class Blog extends Component {
-  #data;
+  #data;  // хранит весь массив статей
   constructor(tagName, className) {
     super(tagName, className);
     this.collectionArticles = new Component("div", "blog__articles");
@@ -20,18 +20,20 @@ class Blog extends Component {
     return title.render();
   }
 
-  async addArticles(number) {
-    this.#data = this.#data.slice(0, number);
+  // если ограничение по количеству статей есть, то обрезает массив до нужного размера
+  async addArticles(number) {  
+    this.#data = this.#data.slice(0, number); 
 
     for (const articles of this.#data) {
       const article = new ArticlePreview("div", "blog__article article-preview", articles);
-      this.collectionArticles.addComponents(article.render());
+      this.collectionArticles.addComponents(article.render());  // по очереди добавляет готовые статьи в обертку
     }
     
     return this.collectionArticles.render();
   }
 
-  infiniteRenderArticles() {
+   // бесконечная подгрузка статей
+  infiniteRenderArticles() { 
     window.addEventListener("scroll" || "touchmove", () => {
       if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
         this.addArticles();
@@ -39,13 +41,14 @@ class Blog extends Component {
     });
   }
 
-  async render(renderCheck, limit) {
+  //можно передать значения на разрешение подгрузки статей и на количество выгружаемых статец
+  async render(infiniteRender, limit) {  
     await this.getData();
     this.container.append(
       this.createTitle(), 
       await this.addArticles(limit)
     );
-    if (renderCheck) this.infiniteRenderArticles()
+    if (infiniteRender) this.infiniteRenderArticles()
     return this.container;
   }
 }

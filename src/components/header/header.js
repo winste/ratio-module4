@@ -14,11 +14,12 @@ class Header extends Component {
     logoImg.addSrc("/images/logo.svg");
     logoImg.container.alt = "logo";
 
+    // если генерируется не домашняя страница, то добавляем ссылку в лого
     if (window.location.pathname == "/") {
       return logoImg.render();
-    } else {
+    } else { 
       const logoLink = new Component("a", "header__logo");
-      logoLink.addHref("/")
+      logoLink.addHref("/");
       logoLink.addComponents(logoImg.render());
       return logoLink.render();
     }

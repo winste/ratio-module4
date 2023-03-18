@@ -1,4 +1,4 @@
-class Component {
+class Component {  // основной класс для создания компонентов
   constructor(tagName, className) {
     this.container = document.createElement(tagName);
     this.container.className = className;

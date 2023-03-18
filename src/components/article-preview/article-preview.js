@@ -13,7 +13,7 @@ class ArticlePreview extends Component {
   addImage() {
     const articleImgLink = new Component("a", "article-preview__img-link");
     const articleImg = new Component("img", "article-preview__img");
-    articleImg.addSrc(`${this.#data.images || "/images/plug.jpg"}`);
+    articleImg.addSrc(`${this.#data.images || "../../images/plug.jpg"}`);
     articleImgLink.addHref(`/blog/article/${this.#data.id}`);
     articleImgLink.addComponents(articleImg.render());
     return articleImgLink.render();
@@ -28,7 +28,7 @@ class ArticlePreview extends Component {
   createTitle() {
     const articleTitle = new Component("h3", "article-preview__title");
     const titleLink = new Component("a", "article-preview__title-link");
-    const checkedTitle = this.#data.title.startsWith("FEATURED ARTICLE")
+    const checkedTitle = this.#data.title.startsWith("FEATURED ARTICLE")  // проверка на опечатку в названии статьи
       ? this.#data.title.split(" ").slice(2).join(" ")
       : this.#data.title;
     titleLink.addContent(checkedTitle);

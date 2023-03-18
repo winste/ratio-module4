@@ -8,25 +8,16 @@ import "./_article.scss";
 
 
 class ArticlePage extends Component {
-  #data;
+  #data;  // для записи данных с API
   constructor(tagName, className) {
     super(tagName, className);
     this.url = window.location.pathname;
   }
 
   async getData() {
-    const regex = /\d+$/;
-    const articleNumber = this.url.match(regex);
-    if (articleNumber === null) return this.#data = undefined;
+    const articleNumber = this.url.match(/\d+$/);  // получаем id статьи с url страницы
+    if (articleNumber === null) return this.#data = undefined; // если статьи с таким id нет, то присваиваем данным значения undefined
     this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
-  }
-
-  removeTagsSEO() {
-    const metaTagsList = ["title", "keywords", "description"];
-    for (const metaTagName of metaTagsList) {
-      const metaTag = document.querySelector(`meta[name="${metaTagName}"]`);
-      if (metaTag) metaTag.remove();
-    }
   }
 
   addTagsSEO() {
@@ -41,7 +32,7 @@ class ArticlePage extends Component {
   addImage() {
     const imageWrap = new Component("div", "article__img-wrapper")
     const articleImg = new Component("img", "article__img");
-    articleImg.addSrc(`${this.#data.images || "/images/plug.jpg"}`);
+    articleImg.addSrc(`${this.#data.images || "/ratio-module4/images/plug.jpg"}`);
     imageWrap.addComponents(articleImg.render());
     return imageWrap.render();
   }
@@ -96,9 +87,8 @@ class ArticlePage extends Component {
 
   async render() {
     await this.getData();
-    if (this.#data) {
-      this.removeTagsSEO();
-      this.addTagsSEO();
+    if (this.#data) {  // если данные пришли
+      this.addTagsSEO(); 
       
       const head = new Component("div", "article__head");
       head.addComponents(

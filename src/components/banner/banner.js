@@ -33,7 +33,7 @@ class Banner extends Component {
     await this.getData();
 
     const wrapper = new Component("div", "banner__wrapper");
-    if (move) wrapper.container.classList.add("banner__wrapper--move");
+    if (move) wrapper.container.classList.add("banner__wrapper--move"); // если передать true, баннеру добавляется класс для перемещения статьи в правый угол по макету
     wrapper.addComponents(this.addImg(),this.createArtice());
     
     this.container.append(
