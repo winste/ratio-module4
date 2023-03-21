@@ -5,7 +5,7 @@ import About from "../components/about/about";
 import ArticlePage from "../components/article/article";
 import Component from "../templates/component";
 import PageError from "../components/404/404";
-import App from "./router";
+import linksPushSate from "../utils/linkPushState";
 import "./preloader/_preloader.scss"
 
 
@@ -39,19 +39,11 @@ class Pages {
       if (this.container.classList.contains("modal-open")) this.container.className = "";
       this.#preloader.render().remove();  // удалеям прелоадер после загрузки готовых компонентов
     }
-    this.linksPushState();
+    // чтобы слушатели не копились, удавляем их и добавляем новые на каждои рендере страницы
+    linksPushSate.removeListener();
+    linksPushSate.addListener();
   }
 
-  // для реализации перехода по ссылкам без перезагрузки страницы
-  linksPushState() {
-    for (const link of document.body.getElementsByTagName("a")) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.history.pushState(null, null, new URL(e.currentTarget.href).pathname);
-        new App().start();
-      });
-    }
-  }
 
   removeTagsSEO() {
     const metaTagsList = ["title", "keywords", "description"];

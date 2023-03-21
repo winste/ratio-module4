@@ -1,7 +1,9 @@
 import ArticlePreview from "../article-preview/article-preview";
 import Component from "../../templates/component";
 import uploadedData from "../../utils/uploadedData";
+import linksPushSate from "../../utils/linkPushState";
 import "./_blog.scss";
+
 
 class Blog extends Component {
   #data;  // хранит весь массив статей
@@ -37,6 +39,8 @@ class Blog extends Component {
     window.addEventListener("scroll" || "touchmove", () => {
       if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
         this.addArticles();
+        linksPushSate.removeListener();
+        linksPushSate.addListener();
      }
     });
   }
