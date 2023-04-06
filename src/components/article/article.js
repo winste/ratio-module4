@@ -11,13 +11,14 @@ class ArticlePage extends Component {
   #data;  // для записи данных с API
   constructor(tagName, className) {
     super(tagName, className);
-    this.url = window.location.pathname;
+    this.articleNumber = window.location.pathname.match(/\d+$/); // получаем id статьи с url страницы
+    (this.articleNumber === null) 
+        ? this.#data = undefined // если статьи с таким id нет, то присваиваем данным значения undefined
+        : this.articleNumber = this.articleNumber[0]
   }
 
   async getData() {
-    const articleNumber = this.url.match(/\d+$/);  // получаем id статьи с url страницы
-    if (articleNumber === null) return this.#data = undefined; // если статьи с таким id нет, то присваиваем данным значения undefined
-    this.#data = await uploadedData(`blog/article/${articleNumber[0]}`);
+    this.#data = await uploadedData(`blog/article/${this.articleNumber}`);
   }
 
   addTagsSEO() {
@@ -27,12 +28,12 @@ class ArticlePage extends Component {
         `<meta name="title" content="${tags.title}" >
         <meta name="keywords" content="${tags.keywords}"> 
         <meta name="description" content="${tags.description}">`)
-  }
+  }y
 
   addImage() {
     const imageWrap = new Component("div", "article__img-wrapper")
     const articleImg = new Component("img", "article__img");
-    articleImg.addSrc(`${this.#data.images || "../../ratio-module4/images/plug.jpg"}`);
+    articleImg.addSrc(`${this.#data.images || `https://picsum.photos/1280/960?random=${this.articleNumber}`}`);
     imageWrap.addComponents(articleImg.render());
     return imageWrap.render();
   }
