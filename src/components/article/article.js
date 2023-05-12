@@ -33,7 +33,7 @@ class ArticlePage extends Component {
   addImage() {
     const imageWrap = new Component("div", "article__img-wrapper")
     const articleImg = new Component("img", "article__img");
-    articleImg.addSrc(`${this.#data.images || `https://picsum.photos/1280/960?random=${this.articleNumber}`}`);
+    articleImg.addSrc(`${this.#data.images || `http://loremflickr.com/1280/960?random=${this.articleNumber}`}`);
     imageWrap.addComponents(articleImg.render());
     return imageWrap.render();
   }
