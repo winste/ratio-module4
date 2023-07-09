@@ -1,6 +1,5 @@
 {
   "name": "ratio4",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "description": "SPA on JS & SCSS",

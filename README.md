@@ -4,4 +4,9 @@ https://winste.github.io/ratio-module4/
 
 #
 
-Проект выполнен на JS + SCSS. Использована библиотека Navigo для роутинга и сборщик Vite
+JS + SCSS. Использована библиотека Navigo для роутинга и сборщик Vite
+
+#
+
+npm run dev
+port: 5000
