@@ -8,6 +8,6 @@ Link [Github-pages](https://winste.github.io/ratio-module4/)
 
 ### Start project
 
-npm install__
-npm run dev__
-port: 5000__
+npm install <br/>
+npm run dev <br/>
+port: 5000 <br/>
