@@ -6,10 +6,8 @@ Link [Github-pages](https://winste.github.io/ratio-module4/)
 * scss
 * vite
 
-# Start project
+### Start project
 
-npm run dev
-
-# Server
-
-port: 5000
+npm install__
+npm run dev__
+port: 5000__
