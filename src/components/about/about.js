@@ -1,36 +1,34 @@
-import Component from "../../templates/component";
-import uploadedData from "../../utils/uploadedData";
-import "./_about.scss";
-
+import Component from '../../templates/component'
+import uploadedData from '../../utils/uploadedData'
+import './_about.scss'
 
 class About extends Component {
-  #data;
+  #data
   constructor(tagName, className) {
-    super(tagName, className);
+    super(tagName, className)
   }
 
   async getData() {
-    this.#data = await uploadedData("about/");
+    this.#data = await uploadedData('about/')
   }
 
   createTitle() {
-    const title = new Component("h2", "about__title");
-    title.addContent(this.#data.title);
-    return title.render();
+    const title = new Component('h2', 'about__title')
+    title.addContent(this.#data.title)
+    return title.render()
   }
 
   createDesctiption() {
-    const desctiption = new Component("div", "about__text");
+    const desctiption = new Component('div', 'about__text')
     desctiption.addContent(this.#data.content)
-    return desctiption.render();
+    return desctiption.render()
   }
 
   async render() {
-    await this.getData();
+    await this.getData()
     this.container.append(this.createTitle(), this.createDesctiption())
-    return this.container;
+    return this.container
   }
 }
 
-
-export default About;
+export default About

@@ -1,5 +1,5 @@
-@import "../../styles/_const.scss";
-@import "../../styles/mixins/flexbox";
+@import '../../styles/const';
+@import '../../styles/mixins/flexbox';
 
 $aboutWidth: 800px;
 
@@ -36,7 +36,6 @@ $aboutWidth: 800px;
       flex-basis: 50%;
       min-width: 50%;
     }
-
   }
 }
 

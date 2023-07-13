@@ -1,31 +1,30 @@
-import Navigo from "navigo";
-import Pages from "./pages";
-
+import Navigo from 'navigo'
+import Pages from './pages'
 
 class App {
   constructor() {
-    this.container = document.body;
+    this.container = document.body
   }
 
   start() {
-    this.container.innerHTML = "";
+    this.container.innerHTML = ''
 
-    const page = new Pages();
-    const router = new Navigo("/");
+    const page = new Pages()
+    const router = new Navigo('/')
 
     router
       .on({
-        "/": () => page.render('home'),
-        "/blog": () => page.render('blog'),
-        "/about": () => page.render('about'),
-        "/blog/article/:id": () => page.render('article')
+        '/': () => page.render('home'),
+        '/blog': () => page.render('blog'),
+        '/about': () => page.render('about'),
+        '/blog/article/:id': () => page.render('article'),
       })
       .on({
-        "ratio-module4/": () => router.navigate("/")
+        'ratio-module4/': () => router.navigate('/'),
       })
-      .notFound( () => page.render('error') )
+      .notFound(() => page.render('error'))
       .resolve()
   }
 }
 
-export default App;
+export default App

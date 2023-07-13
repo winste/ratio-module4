@@ -1,12 +1,15 @@
 # SPA 4 module
 
-https://winste.github.io/ratio-module4/
+Link [Github-pages](https://winste.github.io/ratio-module4/)
 
-#
+* navigo
+* scss
+* vite
 
-JS + SCSS. Использована библиотека Navigo для роутинга и сборщик Vite
-
-#
+# Start project
 
 npm run dev
+
+# Server
+
 port: 5000

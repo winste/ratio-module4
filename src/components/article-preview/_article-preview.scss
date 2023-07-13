@@ -1,6 +1,6 @@
-@import "../../styles/_const.scss";
-@import "../../styles/mixins/hide-rows";
-@import "../../styles/mixins/article-img";
+@import '../../styles/const';
+@import '../../styles/mixins/hide-rows';
+@import '../../styles/mixins/article-img';
 
 $articleBgColor: rgb(255, 255, 255);
 $imgWidth: 370px;

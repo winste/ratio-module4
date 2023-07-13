@@ -1,5 +1,5 @@
-@import "../../styles/const";
-@import "../../styles/mixins/flexbox";
+@import '../../styles/const';
+@import '../../styles/mixins/flexbox';
 
 $navGap: 20px;
 
@@ -40,9 +40,9 @@ $navGap: 20px;
 
 @keyframes shoIt {
   0% {
-    transform: translate(200px, 0); 
+    transform: translate(200px, 0);
   }
   100% {
-    transform: translate(0, 0); 
+    transform: translate(0, 0);
   }
 }

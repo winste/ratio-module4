@@ -1,6 +1,6 @@
-@import "../../styles/const";
-@import "../../styles/mixins/article-img";
-@import "../../styles/mixins/flexbox";
+@import '../../styles/const';
+@import '../../styles/mixins/article-img';
+@import '../../styles/mixins/flexbox';
 
 $imgWidth: $containerSize - $containerPadding * 2;
 $imgHeight: $articleTmageHeight - $containerPadding;

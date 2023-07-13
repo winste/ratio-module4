@@ -1,42 +1,40 @@
-import Component from "../../templates/component";
-import DateConversion from "../../utils/dateConversion";
-import './_creationInfo.scss';
-
+import Component from '../../templates/component'
+import DateConversion from '../../utils/dateConversion'
+import './_creationInfo.scss'
 
 class Creation extends Component {
   constructor(tagName, clasName, author, createdAt, readTime) {
-    super(tagName, clasName);
-    this.author = author;
-    this.createdAt = createdAt;
-    this.readTime = readTime;
+    super(tagName, clasName)
+    this.author = author
+    this.createdAt = createdAt
+    this.readTime = readTime
   }
 
   createTimeCreation() {
-    const articleTimeCreation = new Component("span", "creation");
-    const articleFullTime = new DateConversion(this.createdAt, this.readTime);
-    const author = new Component("p", "creation-author");
-    const delimiter = new Component("p", "creation-delimiter");
-    const creationDate = new Component("p", "creation-date");
-    const readTime = new Component("p", "creation-readTime");
-    author.addContent(this.author);
-    creationDate.addContent(`${articleFullTime.render()}`);
-    readTime.addContent(`(${articleFullTime.getReadingTime()} mins read)`);
+    const articleTimeCreation = new Component('span', 'creation')
+    const articleFullTime = new DateConversion(this.createdAt, this.readTime)
+    const author = new Component('p', 'creation-author')
+    const delimiter = new Component('p', 'creation-delimiter')
+    const creationDate = new Component('p', 'creation-date')
+    const readTime = new Component('p', 'creation-readTime')
+    author.addContent(this.author)
+    creationDate.addContent(`${articleFullTime.render()}`)
+    readTime.addContent(`(${articleFullTime.getReadingTime()} mins read)`)
 
     articleTimeCreation.addComponents(
       author.render(),
       delimiter.render(),
       creationDate.render(),
       readTime.render()
-    );
+    )
 
-    return articleTimeCreation.render();
+    return articleTimeCreation.render()
   }
 
   render() {
-    this.container.append(this.createTimeCreation());
-    return this.container;
+    this.container.append(this.createTimeCreation())
+    return this.container
   }
 }
 
-
-export default Creation;
+export default Creation

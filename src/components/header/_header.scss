@@ -1,5 +1,5 @@
-@import "../../styles/const";
-@import "../../styles/mixins/flexbox";
+@import '../../styles/const';
+@import '../../styles/mixins/flexbox';
 
 $headerFontSize: 20px;
 
@@ -10,7 +10,7 @@ $headerFontSize: 20px;
   font-size: $headerFontSize;
   line-height: 24.8px;
   padding-top: 30px;
-  padding-bottom:40px;
+  padding-bottom: 40px;
   gap: 50px;
   &__logo {
     @include flex(true);
