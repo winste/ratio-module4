@@ -12,6 +12,8 @@
   gap: 50px;
   &__logo {
     @include flex($center: true);
+    min-width: 178px;
+    max-height: 57px;
     align-self: center;
   }
 }
