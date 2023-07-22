@@ -1,22 +1,20 @@
 @import '../../styles/const';
-@import '../../styles/mixins/flexbox';
+@import '../../styles/mixins';
 
 $aboutWidth: 800px;
 
 .about {
-  @include flex(true);
-  flex-direction: column;
+  @include flex($center: true, $direction: column);
   padding: 80px 30px;
   &__title {
     padding: 60px 0 30px 0;
-    font-family: $titleFontFamily;
+    font-family: $secondFontFamily;
     text-align: center;
   }
   &__text {
     max-width: $aboutWidth;
     & > *:first-child {
-      @include flex;
-      gap: 20px;
+      @include flex($gap: 20px);
       margin-bottom: 20px;
       & > *:first-child {
         margin-bottom: 20px;
@@ -39,7 +37,7 @@ $aboutWidth: 800px;
   }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 480px) {
   .about {
     &__title {
       padding: 0 0 40px 0;

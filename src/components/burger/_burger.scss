@@ -1,30 +1,26 @@
 @import '../../styles/const';
 
-$burgerWidth: 40px;
-$burgerHeight: $burgerWidth;
-$burgerColor: rgba(0, 0, 0, 0.54);
-
 .burger {
   display: none;
-  width: $burgerWidth;
-  height: $burgerHeight - 5;
+  width: 40px;
+  height: 35px;
   cursor: pointer;
   background: linear-gradient(
     to bottom,
-    $burgerColor 0%,
-    $burgerColor 20%,
+    $colorOpacity 0%,
+    $colorOpacity 20%,
     transparent 20%,
     transparent 40%,
-    $burgerColor 40%,
-    $burgerColor 60%,
+    $colorOpacity 40%,
+    $colorOpacity 60%,
     transparent 60%,
     transparent 80%,
-    $burgerColor 80%,
-    $burgerColor 100%
+    $colorOpacity 80%,
+    $colorOpacity 100%
   );
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .burger {
     display: block;
     z-index: 2;

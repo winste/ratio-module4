@@ -1,11 +1,8 @@
 @import '../../styles/const';
-@import '../../styles/mixins/flexbox';
-
-$navGap: 20px;
+@import '../../styles/mixins';
 
 .nav {
-  @include flex(true);
-  gap: $navGap;
+  @include flex($center: true, $gap: 20px);
   &__item {
     text-transform: capitalize;
     &--active {
@@ -14,35 +11,25 @@ $navGap: 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .nav {
     display: none;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: -100%;
     right: 0;
+    min-width: 100%;
+    min-height: 100vh;
     padding: 200px 20px;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    @include flex($direction: column, $gap: 50px);
     z-index: 1;
+    transition: all 0.3s ease 0s;
     &__item {
       font-size: 24px;
       padding: 10px;
     }
     &.open {
-      @include flex;
-      min-width: 100%;
-      min-height: 100vh;
-      gap: 50px;
-      animation: shoIt 0.2s linear;
+      top: 0;
     }
-  }
-}
-
-@keyframes shoIt {
-  0% {
-    transform: translate(200px, 0);
-  }
-  100% {
-    transform: translate(0, 0);
   }
 }

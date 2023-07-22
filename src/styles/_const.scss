@@ -1,17 +1,17 @@
-$containerSize: 1366px;
-$containerPadding: 25px;
-$mainColor: rgba(0, 0, 0, 1);
-$colorOpacity: rgba(28, 28, 28, 0.5);
+// font family
 $bodyFontFamily:
   Open Sans,
   Helvetica,
   Arial,
   sans-serif;
-$titleFontFamily: Libre Baskerville;
-$titleFontWeight: bold;
+$secondFontFamily: Libre Baskerville;
+
+// font color
+$mainColor: #000000;
+$colorOpacity: #1c1c1c80;
+
+// font size
 $mainFontSize: 16px;
-$tabletFontSize: $mainFontSize - 2;
+$tabletFontSize: 14px;
 $h2FontSize: 42px;
 $h3FontSize: 33px;
-$tagFontSize: 20px;
-$articleTmageHeight: 592px;

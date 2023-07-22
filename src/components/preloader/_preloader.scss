@@ -1,16 +1,13 @@
 @import '../../styles/const';
 
-$loaderSize: 70px;
-$loaderWidth: 5px;
-
 .preloader {
-  width: $loaderSize;
-  height: $loaderSize;
+  width: 70px;
+  height: 70px;
   margin-top: 100px;
   animation: spinner 0.5s linear infinite;
   border-color: $colorOpacity transparent;
   border-style: solid;
-  border-width: $loaderWidth;
+  border-width: 5px;
   border-radius: 50%;
 }
 

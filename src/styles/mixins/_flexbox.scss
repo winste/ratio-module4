@@ -1,6 +1,0 @@
-@mixin flex($center: false) {
-  display: flex;
-  @if ($center) {
-    align-items: center;
-  }
-}

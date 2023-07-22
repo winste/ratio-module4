@@ -1,26 +1,21 @@
 @import '../../styles/const';
-@import '../../styles/mixins/article-img';
-@import '../../styles/mixins/flexbox';
-
-$articleWidth: 652px;
+@import '../../styles/mixins';
 
 .article {
   padding-bottom: 0;
-  &__container {
-    max-width: $articleWidth;
+  &__content {
+    max-width: 652px;
     margin: auto;
     margin-bottom: 160px;
   }
   &__img-wrapper {
-    height: $articleTmageHeight;
+    height: 592px;
   }
   &__img {
     @include article-img;
   }
   &__head {
-    @include flex(true);
-    flex-direction: column;
-    gap: 10px;
+    @include flex($center: true, $direction: column, $gap: 10px);
     text-align: center;
     padding: 25px 0;
   }
@@ -28,9 +23,7 @@ $articleWidth: 652px;
     text-transform: lowercase;
   }
   &__description {
-    @include flex;
-    flex-direction: column;
-    gap: 20px;
+    @include flex($direction: column, $gap: 20px);
     margin-bottom: 70px;
   }
   &__author {
@@ -43,7 +36,7 @@ $articleWidth: 652px;
     &__img-wrapper {
       height: auto;
     }
-    &__container,
+    &__content,
     &__description {
       margin-bottom: 30px;
     }

@@ -1,19 +1,13 @@
 @import '../../styles/const';
-@import '../../styles/mixins/hide-rows';
-@import '../../styles/mixins/article-img';
-
-$articleBgColor: rgb(255, 255, 255);
-$imgWidth: 370px;
-$imgHeight: 300px;
-$tagLineHeight: 28px;
+@import '../../styles/mixins';
 
 .article-preview {
   &__img {
     @include article-img;
     &-link {
       display: block;
-      max-width: $imgWidth;
-      max-height: $imgHeight;
+      max-width: 370px;
+      max-height: 300px;
       min-width: 210px;
     }
   }
@@ -21,10 +15,10 @@ $tagLineHeight: 28px;
     max-width: 509px;
   }
   &__tag {
-    font-size: $tagFontSize;
+    font-size: 20px;
     color: $colorOpacity;
     text-transform: uppercase;
-    line-height: $tagLineHeight;
+    line-height: 28px;
   }
   &__title {
     @include hide-rows(2);
@@ -36,15 +30,20 @@ $tagLineHeight: 28px;
   &--view {
     max-width: 509px;
     padding: 75px 40px;
-    background-color: $articleBgColor;
+    background-color: #ffffff;
   }
 }
 
 @media (max-width: 768px) {
   .article-preview {
+    &__img {
+      &-link {
+        max-width: 210px;
+      }
+    }
     &__tag {
-      font-size: $tagFontSize - 6;
-      line-height: $tagLineHeight - 8;
+      font-size: 14px;
+      line-height: 20px;
     }
     &__title {
       line-height: 30px;
@@ -63,8 +62,8 @@ $tagLineHeight: 28px;
     padding: 0;
     &__img {
       &-link {
-        height: 100px;
-        width: 100%;
+        max-height: 100px;
+        min-width: 100%;
       }
     }
     &--view {

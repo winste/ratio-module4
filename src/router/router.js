@@ -1,5 +1,5 @@
 import Navigo from 'navigo'
-import Pages from './pages'
+import Pages from '../pages'
 
 class App {
   constructor() {

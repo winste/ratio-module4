@@ -1,49 +1,29 @@
+// Libre Baskerville
 @font-face {
   font-family: 'Libre Baskerville';
-  src: url(/fonts/LibreBaskerville/LibreBaskerville-Regular.eot);
-  src:
-    url(/fonts/LibreBaskerville/LibreBaskerville-Regular.eot)
-      format('embedded-opentype'),
-    url(/fonts/LibreBaskerville/LibreBaskerville-Regular.woff) format('woff'),
-    url(/fonts/LibreBaskerville/LibreBaskerville-Regular.ttf) format('truetype'),
-    url(/fonts/LibreBaskerville/LibreBaskerville-Regular.svg) format('svg');
+  src: url(/fonts/LibreBaskerville/LibreBaskerville-Regular.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Libre Baskerville';
-  src: url(/fonts/LibreBaskerville/LibreBaskerville-Bold.eot);
-  src:
-    url(/fonts/LibreBaskerville/LibreBaskerville-Bold.eot)
-      format('embedded-opentype'),
-    url(/fonts/LibreBaskerville/LibreBaskerville-Bold.woff) format('woff'),
-    url(/fonts/LibreBaskerville/LibreBaskerville-Bold.ttf) format('truetype'),
-    url(/fonts/LibreBaskerville/LibreBaskerville-Bold.svg) format('svg');
+  src: url(/fonts/LibreBaskerville/LibreBaskerville-Bold.woff) format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
+// Open Sans
 @font-face {
   font-family: 'Open Sans';
-  src: url(/fonts/OpenSans/OpenSans-Regular.eot);
-  src:
-    url(/fonts/OpenSans/OpenSans-Regular.eot) format('embedded-opentype'),
-    url(/fonts/OpenSans/OpenSans-Regular.woff) format('woff'),
-    url(/fonts/OpenSans/OpenSans-Regular.ttf) format('truetype'),
-    url(/fonts/OpenSans/OpenSans-Regular.svg) format('svg');
+  src: url(/fonts/OpenSans/OpenSans-Regular.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url(/fonts/OpenSans/OpenSans-Bold.eot);
-  src:
-    url(/fonts/OpenSans/OpenSans-Bold.eot) format('embedded-opentype'),
-    url(/fonts/OpenSans/OpenSans-Bold.woff) format('woff'),
-    url(/fonts/OpenSans/OpenSans-Bold.ttf) format('truetype'),
-    url(/fonts/OpenSans/OpenSans-Bold.svg) format('svg');
+  src: url(/fonts/OpenSans/OpenSans-Bold.woff) format('woff');
   font-weight: bold;
   font-style: normal;
 }

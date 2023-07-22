@@ -1,14 +1,6 @@
-@import './src/styles/fonts';
-@import './src/styles/const';
-
+// не смогла иначе придумать, куда его прописать
 * {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  border: none;
   box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
 }
 
 html {
@@ -21,11 +13,27 @@ body {
   font-family: $bodyFontFamily;
 }
 
+ul,
+li,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 a {
+  transition: all 0.3s ease-out;
   color: $mainColor;
+  text-decoration: none;
   &:hover {
     opacity: 0.5;
   }
+}
+
+p {
+  line-height: 24px;
 }
 
 span {
@@ -33,23 +41,21 @@ span {
 }
 
 h2 {
-  font-family: $titleFontFamily;
-  font-weight: $titleFontWeight;
+  font-family: $secondFontFamily;
   font-size: $h2FontSize;
   line-height: normal;
 }
 
 h3 {
-  font-family: $titleFontFamily;
-  font-weight: $titleFontWeight;
+  font-family: $secondFontFamily;
   font-size: $h3FontSize;
   line-height: 41px;
 }
 
 .container {
-  max-width: $containerSize;
+  max-width: 1366px;
   margin: 0 auto;
-  padding: 0 $containerPadding;
+  padding: 0 25px;
 }
 
 .modal-open {
@@ -62,19 +68,19 @@ h3 {
     font-size: $tabletFontSize;
   }
   h2 {
-    font-size: $h2FontSize - 6;
+    font-size: 36px;
   }
   h3 {
-    font-size: $h3FontSize - 10;
+    font-size: 23px;
   }
 }
 
 @media (max-width: 480px) {
   h2 {
-    font-size: $h2FontSize - 18;
+    font-size: 24px;
   }
   h3 {
-    font-size: $h3FontSize - 15;
+    font-size: 18px;
     line-height: 27px;
   }
 }

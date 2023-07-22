@@ -1,12 +1,12 @@
-import Header from '../components/header/header'
-import Banner from '../components/banner/banner'
-import Blog from '../components/blog/blog'
-import About from '../components/about/about'
-import ArticlePage from '../components/article/article'
-import Component from '../templates/component'
-import PageError from '../components/404/404'
-import linksPushSate from '../utils/linkPushState'
-import './preloader/_preloader.scss'
+import Header from './components/header/header'
+import Banner from './components/banner/banner'
+import Blog from './components/blog/blog'
+import About from './components/about/about'
+import ArticlePage from './components/article/article'
+import Component from './templates/component'
+import PageError from './components/404/404'
+import linksPushSate from './utils/linkPushState'
+import './components/preloader/_preloader.scss'
 
 // общий класс для вызова рендера необходимой страницы
 class Pages {
@@ -15,7 +15,7 @@ class Pages {
   #bannerMove = new Banner('section', 'banner banner--move container')
   #blog = new Blog('section', 'blog container')
   #about = new About('section', 'about container')
-  #article = new ArticlePage('section', 'article container')
+  #article = new ArticlePage('section', 'article')
   #error = new PageError('section', 'error container')
   #preloader = new Component('div', 'preloader container')
 
@@ -38,9 +38,9 @@ class Pages {
       // для мобильной версии: если после перехода по ссылке из меню-бургера в body остался класс для предотвращения скролла, удаляем его
       if (this.container.classList.contains('modal-open'))
         this.container.className = ''
-      this.#preloader.render().remove() // удалеям прелоадер после загрузки готовых компонентов
+      this.#preloader.render().remove() // удаляем прелоадер после загрузки готовых компонентов
     }
-    // чтобы слушатели не копились, удавляем их и добавляем новые на каждои рендере страницы
+    // чтобы слушатели не копились, удавляем их и добавляем новые на каждом рендере страницы
     linksPushSate.removeListener()
     linksPushSate.addListener()
   }

@@ -13,7 +13,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write src/",
-    "lint": " npx stylelint **/*.scss",
+    "stylelint": " npx stylelint **/*.scss",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

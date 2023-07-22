@@ -1,16 +1,12 @@
 @import '../../styles/const';
-@import '../../styles/mixins/flexbox';
-
-$btnWidth: 550px;
-$btnFontSize: 18px;
+@import '../../styles/mixins';
 
 .button {
-  @include flex(true);
+  @include flex($center: true, $gap: 30px);
   flex: 1 1 0;
-  max-width: $btnWidth;
-  font-family: $titleFontFamily;
-  font-size: $btnFontSize;
-  gap: 30px;
+  max-width: 550px;
+  font-family: $secondFontFamily;
+  font-size: 18px;
   &__prev {
     justify-content: start;
   }
@@ -24,6 +20,7 @@ $btnFontSize: 18px;
   }
   &__link {
     font-weight: bold;
+    display: flex;
   }
   &__img--opacity {
     opacity: 0.5;
@@ -32,7 +29,7 @@ $btnFontSize: 18px;
 
 @media (max-width: 768px) {
   .button {
-    font-size: $btnFontSize - 6;
+    font-size: 12px;
     gap: 10px;
     &__img {
       max-width: 50px;

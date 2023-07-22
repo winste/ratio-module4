@@ -14,12 +14,18 @@ class Navigation extends Component {
 
   addNavigationItem() {
     for (const route in this.navRoutes) {
-      const navItem = new Component('a', 'nav__item')
-      navItem.addContent(route)
-      navItem.addHref(this.navRoutes[route])
+      let navItem;
+
       if (window.location.pathname == this.navRoutes[route]) {
-        navItem.container.classList.add('nav__item--active')
+        navItem = new Component('p', 'nav__item nav__item--active')
+        navItem.addContent(route)
+        
+      } else {
+        navItem = new Component('a', 'nav__item')
+        navItem.addContent(route)
+        navItem.addHref(this.navRoutes[route])
       }
+
       this.container.append(navItem.render())
     }
   }

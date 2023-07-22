@@ -1,19 +1,14 @@
 @import '../../styles/const';
-@import '../../styles/mixins/article-img';
-@import '../../styles/mixins/flexbox';
-
-$imgWidth: $containerSize - $containerPadding * 2;
-$imgHeight: $articleTmageHeight - $containerPadding;
-$marginArticle: 45px;
+@import '../../styles/mixins';
 
 .banner {
   padding-bottom: 0;
   &__wrapper {
     position: relative;
-    min-height: $articleTmageHeight;
+    min-height: 592px;
     margin: 0 1px;
     &--move {
-      @include flex(true);
+      @include flex($center: true);
       justify-content: end;
     }
   }
@@ -23,8 +18,8 @@ $marginArticle: 45px;
     z-index: -1;
   }
   &__info {
-    margin-left: $marginArticle;
-    margin-right: $marginArticle;
+    margin-left: 45px;
+    margin-right: 45px;
     & > a {
       display: none;
     }

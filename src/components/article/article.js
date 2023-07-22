@@ -33,7 +33,7 @@ class ArticlePage extends Component {
   y
 
   addImage() {
-    const imageWrap = new Component('div', 'article__img-wrapper')
+    const imageWrap = new Component('div', 'article__img-wrapper container')
     const articleImg = new Component('img', 'article__img')
     articleImg.addSrc(
       `${
@@ -106,7 +106,7 @@ class ArticlePage extends Component {
         await this.createTag()
       )
 
-      const wrapper = new Component('div', 'article__container')
+      const wrapper = new Component('div', 'article__content container')
       wrapper.addComponents(
         head.render(),
         await this.createDescription(),

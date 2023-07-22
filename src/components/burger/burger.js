@@ -8,7 +8,8 @@ class Burger extends Component {
 
   addListener() {
     this.container.onclick = () => {
-      document.getElementById('nav').classList.toggle('open')
+      const navigation = document.getElementById('nav')
+      navigation.classList.toggle('open')
       document.body.classList.toggle('modal-open')
     }
   }

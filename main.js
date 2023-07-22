@@ -1,4 +1,4 @@
-import "./style.scss";
+import "./src/styles/style.scss";
 import App from "./src/router/router";
 
 const app = new App();

@@ -1,12 +1,8 @@
 @import '../../styles/const';
-@import '../../styles/mixins/flexbox';
-
-$gap: 55px;
+@import '../../styles/mixins';
 
 .blog {
-  @include flex(true);
-  flex-direction: column;
-  gap: $gap;
+  @include flex($center: true, $direction: column, $gap: 55px);
   padding-top: 50px;
   margin-bottom: 75px;
   &__title {
@@ -23,23 +19,20 @@ $gap: 55px;
     }
   }
   &__articles {
-    @include flex;
-    flex-direction: column;
-    gap: $gap;
+    @include flex($direction: column, $gap: 55px);
   }
   &__article {
-    @include flex;
-    gap: $gap;
+    @include flex($gap: 55px);
   }
 }
 
 @media (max-width: 768px) {
   .blog {
     &__articles {
-      gap: $gap - 23;
+      gap: 32px;
     }
     &__article {
-      gap: $gap - 32;
+      gap: 32px;
     }
   }
 }
@@ -47,7 +40,7 @@ $gap: 55px;
 @media (max-width: 480px) {
   .blog {
     margin: auto;
-    gap: $gap - 20;
+    gap: 35px;
     &__title {
       &::after {
         top: 65px;
@@ -57,7 +50,7 @@ $gap: 55px;
       }
     }
     &__articles {
-      gap: $gap - 20;
+      gap: 35px;
       padding-bottom: 15px;
     }
     &__article {

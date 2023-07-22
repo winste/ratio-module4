@@ -1,8 +1,5 @@
 @import '../../styles/const';
-@import '../../styles/mixins/flexbox';
-
-$avatarWidth: 160px;
-$avatarHeight: $avatarWidth;
+@import '../../styles/mixins';
 
 .author {
   &__title {
@@ -18,8 +15,8 @@ $avatarHeight: $avatarWidth;
   }
   &__img {
     grid-area: 1/1/4/2;
-    max-width: $avatarWidth;
-    max-height: $avatarHeight;
+    max-width: 160px;
+    max-height: 160px;
   }
 }
 
@@ -36,8 +33,8 @@ $avatarHeight: $avatarWidth;
   .author {
     &__img {
       grid-area: 1/1;
-      max-width: calc($avatarWidth / 2);
-      max-height: calc($avatarHeight / 2);
+      max-width: 80px;
+      max-height: 80px;
     }
     &__name {
       display: flex;
