@@ -41,6 +41,7 @@ class ArticlePage extends Component {
         `http://loremflickr.com/1280/960/nature?random=${this.articleNumber}`
       }`
     )
+    articleImg.container.alt = 'article image'
     imageWrap.addComponents(articleImg.render())
     return imageWrap.render()
   }

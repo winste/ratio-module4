@@ -18,6 +18,8 @@ class ArticlePreview extends Component {
         `http://loremflickr.com/1280/960/nature?random=${this.#data.id}`
       }`
     )
+    articleImg.container.alt = 'article image'
+    articleImg.container.setAttribute('aria-label', `Read more about ${this.#data.title}`)
     articleImgLink.addHref(`/blog/article/${this.#data.id}`)
     articleImgLink.addComponents(articleImg.render())
     return articleImgLink.render()

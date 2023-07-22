@@ -51,7 +51,7 @@ class Blog extends Component {
     })
   }
 
-  //можно передать значения на разрешение подгрузки статей и на количество выгружаемых статец
+  // можно передать значения на разрешение подгрузки статей и на количество выгружаемых статей
   async render(infiniteRender, limit) {
     await this.getData()
     this.container.append(this.createTitle(), await this.addArticles(limit))
