@@ -1,6 +1,11 @@
 @import '../../styles/const';
 @import '../../styles/mixins';
 
+.logo {
+  width: 178px;
+  height: 57px;
+}
+
 .header {
   @include flex;
   position: relative;

@@ -9,7 +9,7 @@ class Header extends Component {
   }
 
   addLogo() {
-    const logoImg = new Component('img', 'header__img logo')
+    const logoImg = new Component('img', 'logo')
     logoImg.addSrc('/images/logo.svg')
     logoImg.container.alt = 'logo'
 
