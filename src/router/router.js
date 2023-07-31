@@ -19,9 +19,6 @@ class App {
         '/about': () => page.render('about'),
         '/blog/article/:id': () => page.render('article'),
       })
-      .on({
-        'ratio-module4/': () => router.navigate('/'),
-      })
       .notFound(() => page.render('error'))
       .resolve()
   }

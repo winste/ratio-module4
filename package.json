@@ -13,12 +13,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write src/",
-    "stylelint": " npx stylelint **/*.scss",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "stylelint": " npx stylelint **/*.scss"
   },
   "dependencies": {
-    "gh-pages": "^5.0.0",
     "navigo": "^8.11.1",
     "sass": "^1.57.1",
     "scss": "^0.2.4"
