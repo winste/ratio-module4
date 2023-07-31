@@ -30,7 +30,6 @@ class ArticlePage extends Component {
         <meta name="description" content="${tags.description}">`
     )
   }
-  y
 
   addImage() {
     const imageWrap = new Component('div', 'article__img-wrapper container')

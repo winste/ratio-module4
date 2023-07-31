@@ -21,6 +21,14 @@ class Blog extends Component {
     return title.render()
   }
 
+  addTagsSEO() {
+    const head = document.getElementsByTagName('head')[0]
+    head.insertAdjacentHTML(
+      'beforeend',
+      `<meta name="description" content="Nuntium blog">`
+    )
+  }
+
   // если ограничение по количеству статей есть, то обрезает массив до нужного размера
   async addArticles(number) {
     this.#data = this.#data.slice(0, number)
@@ -41,7 +49,7 @@ class Blog extends Component {
   infiniteRenderArticles() {
     window.addEventListener('scroll' || 'touchmove', () => {
       if (
-        window.innerHeight + window.pageYOffset >=
+        window.innerHeight + window.scrollY >=
         document.body.offsetHeight
       ) {
         this.addArticles()
@@ -54,8 +62,13 @@ class Blog extends Component {
   // можно передать значения на разрешение подгрузки статей и на количество выгружаемых статей
   async render(infiniteRender, limit) {
     await this.getData()
-    this.container.append(this.createTitle(), await this.addArticles(limit))
+    this.addTagsSEO()
+    this.container.append(
+      this.createTitle(), 
+      await this.addArticles(limit)
+    )
     if (infiniteRender) this.infiniteRenderArticles()
+    
     return this.container
   }
 }
