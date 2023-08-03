@@ -15,7 +15,7 @@ class ArticlePreview extends Component {
     articleImg.addSrc(
       `${
         this.#data.images ||
-        `https://loremflickr.com/1280/960/nature?random=${this.#data.id}`
+        `https://loremflickr.com/640/480/nature?random=${this.#data.id}`
       }`
     )
     articleImg.container.alt = 'article image'
