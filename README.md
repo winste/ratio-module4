@@ -1,6 +1,6 @@
 # SPA 4 module
 
-Link [Github-pages](https://winste.github.io/ratio-module4/)
+Заменила хостинг на Netlify [Ссылка](https://nuntium-articles-feed.netlify.app/)
 
 * navigo
 * scss
