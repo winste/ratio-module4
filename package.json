@@ -17,11 +17,11 @@
   },
   "dependencies": {
     "navigo": "^8.11.1",
-    "normalize.css": "^8.0.1",
     "sass": "^1.57.1",
     "scss": "^0.2.4"
   },
   "devDependencies": {
+    "normalize.css": "^8.0.1",
     "prettier": "^3.0.0",
     "stylelint": "^15.10.1",
     "stylelint-config-recommended-scss": "^12.0.0",

@@ -37,7 +37,7 @@ class ArticlePage extends Component {
     articleImg.addSrc(
       `${
         this.#data.images ||
-        `http://loremflickr.com/1280/960/nature?random=${this.articleNumber}`
+        `https://loremflickr.com/1280/960/nature?random=${this.articleNumber}`
       }`
     )
     articleImg.container.alt = 'article image'
