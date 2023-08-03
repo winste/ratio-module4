@@ -15,6 +15,7 @@ class Banner extends Component {
 
   addImg() {
     const bannerImg = new Component('img', 'banner__img')
+    bannerImg.container.loading = 'lazy'
     bannerImg.addSrc(`${this.#data.image}`)
     return bannerImg.render()
   }
