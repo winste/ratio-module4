@@ -1,6 +1,3 @@
-@import '../../styles/const';
-@import '../../styles/mixins';
-
 .nav {
   @include flex($center: true, $gap: 20px);
   &__item {

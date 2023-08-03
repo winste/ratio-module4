@@ -1,6 +1,3 @@
-@import '../../styles/const';
-@import '../../styles/mixins';
-
 .blog {
   @include flex($center: true, $direction: column, $gap: 55px);
   padding-top: 50px;

@@ -1,6 +1,3 @@
-@import '../../styles/const';
-@import '../../styles/mixins';
-
 .creation {
   @include flex($center: true, $gap: 8px);
   flex-wrap: wrap;

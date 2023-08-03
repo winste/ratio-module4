@@ -1,5 +1,3 @@
-@import '../../styles/mixins';
-
 .pagination {
   @include flex($gap: 50px);
   justify-content: space-between;
